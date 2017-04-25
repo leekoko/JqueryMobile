@@ -2,4 +2,4 @@
 
 ---
 
-## [基础知识]{doc/jqueryBasics.md}
+## [基础知识](doc/jqueryBasics.md)
