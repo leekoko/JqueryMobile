@@ -121,7 +121,7 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
     <ul data-role = "listview" data-inset= "true" >
         <li>
             <a href="#">
-            	<img src="https://www.baidu.com/img/bd_logo1.png">
+            	《img src="https://www.baidu.com/img/bd_logo1.png"》
                 <h2>Baidu</h2>
                 <p>这是一款高级的搜索引擎</p>
             </a>
