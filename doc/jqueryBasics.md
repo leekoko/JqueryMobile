@@ -77,10 +77,10 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
 
 ## 4.按钮样式
 
-1. form中用 <button>button按钮</button> ，外面用 <a href="#" data-role="button">按钮</a> 
+1. form中用 ``<button>button按钮</button>`` ，外面用 ``<a href="#" data-role="button">按钮</a> ``
  
 如果要修改表格的外观，需要添加样式：  
-表格默认是行元素，修改为块元素添加data-inline="true"  
+表格默认是行元素，修改为块元素添加data-inline="true"    
 添加阴影 data-shadow  
 添加圆角 data-corner  
 
@@ -100,15 +100,11 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
 ---
 
 ## 5.ListView
-在ul中添加 data-role = "listview" 
-设置外边距 data-inset= "true"
-添加分组标签  <ul data-role = "listview" data-inset= "true">
-添加搜索栏  data-filter="true"   添加搜索文本框 data-filter-placeholder="请输入类型"
-添加带图列表  	
-     <img src="https://www.baidu.com/img/bd_logo1.png">  
-     <h2>Baidu</h2>  
-     <p>这是一款高级的搜索引擎</p>  
-添加数字气泡   <span class="ui-li-count">110</span>
+在ul中添加 data-role = "listview"   
+设置外边距 data-inset= "true"  
+添加分组标签 `` <ul data-role = "listview" data-inset= "true">  ``  
+添加搜索栏  data-filter="true"     添加搜索文本框 data-filter-placeholder="请输入类型"
+添加数字气泡   ``<span class="ui-li-count">110</span>``
 
 ```html
     <ul data-role = "listview" data-inset= "true" data-filter="true" data-filter-placeholder="请输入类型">
@@ -133,8 +129,8 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
 
 ## 6.表单控件
 
-1. class="ui-hidden-accessible"  隐藏当前lable 
-2. data-role="fieldcontain"  让元素有条件在同一行显示
+1.class="ui-hidden-accessible"  隐藏当前lable   
+2.data-role="fieldcontain"  让元素有条件在同一行显示  
 
 ```html
 <body>
