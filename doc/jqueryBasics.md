@@ -28,8 +28,8 @@ jqueryMobile基础
 
 2. 页面模块的声明  
 data-role ="page"    说明这是个页面  
-（还有header,content,footer 添加之后就会变成相应的模块，listview是一个列表   返回按钮的data-role ="back"） 
-id设为page2，然后href="#page2"    因为是同一个html文件，所以用锚进行跳转  
+（还有header,content,footer 添加之后就会变成相应的模块，listview是一个列表   返回按钮的data-role ="back"）   
+id设为page2，然后href="#page2"    因为是同一个html文件，所以用锚进行跳转   
 （也可以通过不同文件跳转，只要在url访问demo02.html即可）  
 
 ```html
@@ -83,7 +83,6 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
 表格默认是行元素，修改为块元素添加data-inline="true"    
 添加阴影 data-shadow  
 添加圆角 data-corner  
-
 添加图标 ： data-icon="arrow-l"（各种图标去搜索）      图标的位置 ：  data-iconpos="top"
 
 2. 使用按钮组,使用controlgroup，其data-type="horizontal"
@@ -103,7 +102,7 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
 在ul中添加 data-role = "listview"   
 设置外边距 data-inset= "true"  
 添加分组标签 `` <ul data-role = "listview" data-inset= "true">  ``  
-添加搜索栏  data-filter="true"     添加搜索文本框 data-filter-placeholder="请输入类型"
+添加搜索栏  data-filter="true"     添加搜索文本框 data-filter-placeholder="请输入类型"  
 添加数字气泡   ``<span class="ui-li-count">110</span>``
 
 ```html
