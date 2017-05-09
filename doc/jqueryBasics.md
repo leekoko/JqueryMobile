@@ -1,4 +1,4 @@
-﻿﻿
+﻿
 jqueryMobile基础
 ===
 
@@ -209,7 +209,90 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
 
 </body>
 ```
+---
+
+## 7.页眉页脚内容
+
+1. 页眉，页脚导航  
+ - 页眉默认三个按钮一行，五个一行
+2. 页眉内容  
+ - 默认两个按钮+1个文本
+ - 一个按钮要让它在右边的话，添加class="ui-btn-right"
+ - 页脚可以有多个按钮  
+ - 隐藏页面 data-position="fixed" data-fullscreen="true"
+
+---
+
+## 8.布局
+
+1. 固定布局：绝对的像素
+2. 流式布局：按照百分比设定大小  
+ - 基于流式布局的网格布局：class设置为ui-grid-b表示三格网格  
+ - 里面内容每列设置为：ui-block-a|b|c   表示三列内容  
+ - 当重复使用同个字母的话，就会进行换行  
 
 
+```html
+<body>
+	
+<div data-role="page" id="page">
+  <div data-role="header" data-position="fixed" data-fullscreen="true">
+  	<!--
+      	作者：offline
+      	时间：2017-05-09
+      	描述：页眉导航
+      -->
+<!--
+  	<div data-role="navbar">
+  		<ul>
+  			<li><a href="#" data-icon="home">首页</a></li>
+ 			<li><a href="#" data-icon="search">搜索</a></li>
+ 			<li><a href="#" data-icon="back">返回</a></li>
+  			
+  		</ul>	
+  	</div>	
 
+-->
+  	<a href="#" data-role="button" class="ui-btn-right">搜索</a>
+  	<h1>第一块文本</h1>
+  </div>
+  
+  
+  
+  <div data-role="content">
+  	<div class="ui-grid-b">
+		<div class="ui-block-a"><a href="#" data-role = "button" >按钮</a></div>
+		<div class="ui-block-b"><a href="#" data-role = "button" >按钮</a></div>
+		<div class="ui-block-c"><a href="#" data-role = "button" >按钮</a></div>
+		
+		<div class="ui-block-a"><a href="#" data-role = "button" >按钮</a></div>
+		<div class="ui-block-b"><a href="#" data-role = "button" >按钮</a></div>
+		
+		<div class="ui-block-a"><a href="#" data-role = "button" >按钮</a></div>
+		
+	</div>
+  </div>
+  <!--
+  	作者：offline
+  	时间：2017-05-09
+  	描述：页脚导航
+  -->
+  <div data-role="footer">
+  	  	<div data-role="navbar">
+  		<ul>
+  			<li><a href="#" data-icon="home">首页</a></li>
+ 			<li><a href="#" data-icon="search">搜索</a></li>
+ 			<li><a href="#" data-icon="back">返回</a></li>
+  			<li><a href="#" data-icon="home">首页</a></li>
+ 			<li><a href="#" data-icon="search">搜索</a></li>
+
+  			  			
+  		</ul>	
+  	</div>	
+  </div>
+</div>
+
+</div>
+</body>
+```
 
