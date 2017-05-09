@@ -1,4 +1,4 @@
-﻿
+
 jqueryMobile基础
 ===
 
@@ -92,7 +92,7 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
 			<a href="#" data-role = "button">首页</a>	
 			<a href="#" data-role = "button">介绍</a>	
 			<a href="#" data-role = "button">联系</a>		
-			<!-- 头尾自动为圆角 --！>
+			<!-- 头尾自动为圆角 -->
 		</div>
 ```
 
@@ -133,9 +133,8 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
 
 ```html
 <body>
-
     <div data-role="page" id="page">
-      
+    
         <div data-role="header">
         	<h1>Form表单</h1>
         </div>
@@ -146,7 +145,6 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
                 	<!--class="ui-hidden-accessible"  隐藏当前lable  -->
                     <label for="search" class="ui-hidden-accessible">搜索：</label>
                     <input type="search" name="search" id="search" placeholder="请输入搜索内容" />
-					
                 </div>
                 <button type="submit" data-inline="true">提交</button>
             </form>
@@ -197,16 +195,13 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
                 </div>
                 <button type="submit" data-inline="true">提交</button>
             </form>
-            
-            
+         
         </div>
         
         <div data-role="footer">
         	<h1>页面脚注</h1>
-        </div>
-      
+        </div>   
     </div>
-
 </body>
 ```
 ---
@@ -214,7 +209,7 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
 ## 7.页眉页脚内容
 
 1. 页眉，页脚导航  
- - 页眉默认三个按钮一行，五个一行
+ - 页眉默认三个按钮一行，页脚五个一行
 2. 页眉内容  
  - 默认两个按钮+1个文本
  - 一个按钮要让它在右边的话，添加class="ui-btn-right"
@@ -237,21 +232,15 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
 	
 <div data-role="page" id="page">
   <div data-role="header" data-position="fixed" data-fullscreen="true">
-  	<!--
-      	作者：offline
-      	时间：2017-05-09
-      	描述：页眉导航
-      -->
+  	<!--页眉导航-->
 <!--
   	<div data-role="navbar">
   		<ul>
   			<li><a href="#" data-icon="home">首页</a></li>
  			<li><a href="#" data-icon="search">搜索</a></li>
  			<li><a href="#" data-icon="back">返回</a></li>
-  			
   		</ul>	
   	</div>	
-
 -->
   	<a href="#" data-role="button" class="ui-btn-right">搜索</a>
   	<h1>第一块文本</h1>
@@ -272,11 +261,7 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
 		
 	</div>
   </div>
-  <!--
-  	作者：offline
-  	时间：2017-05-09
-  	描述：页脚导航
-  -->
+  <!--页脚导航 -->
   <div data-role="footer">
   	  	<div data-role="navbar">
   		<ul>
@@ -284,15 +269,12 @@ id设为page2，然后href="#page2"    因为是同一个html文件，所以用�
  			<li><a href="#" data-icon="search">搜索</a></li>
  			<li><a href="#" data-icon="back">返回</a></li>
   			<li><a href="#" data-icon="home">首页</a></li>
- 			<li><a href="#" data-icon="search">搜索</a></li>
-
-  			  			
+ 			<li><a href="#" data-icon="search">搜索</a></li>		  			
   		</ul>	
   	</div>	
   </div>
 </div>
-
 </div>
 </body>
 ```
-
+[综合应用实例源码](../SourceCode/BaseTest.html)

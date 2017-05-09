@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jqueryMobile的综合应用</title>
+<!--加速器-->
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<!--说明该div表示一个页面 -->	
+<div data-role="page" id="page">   
+  <!-- data-role的作用是表示其属于哪一种控件-->		
+  <div data-role="header">
+  	<h1>第 1 页</h1>
+  </div>
+  
+  <div data-role="content">
+  	<!--listview表示列表视图  添加搜索栏 data-filter="true" -->
+    <ul date-role="listview"  data-inset= "true" data-filter="true" data-filter-placeholder="请输入类型">
+    	<!-- html5可以在一个页面中写两个页面，只要data-role设置相同就可以，这里用锚点跳转 -->	
+        <li><a href="#page2">第 2 页</a></li>
+        <!--上边添加左键图标    右边界添加气泡-->
+        <li><a href="#" data-inline="true" data-role="button" data-icon="arrow-l" data-iconpos="top">上边左图标</a><span class="ui-li-count">110</span></li>
+		<!--添加图片 -->
+		＜img src="https://www.baidu.com/img/bd_logo1.png"＞
+    </ul>
+    <!--当使用水平排列的按钮的时候 -->
+    <div data-role="controlgroup" data-type="horizontal">
+			<a href="#" data-role = "button">首页</a>	
+			<a href="#" data-role = "button">介绍</a>	
+			<a href="#" data-role = "button">联系</a>		
+	</div>
+  </div>
+  
+  <div data-role="footer">
+  	<h1>页面跳转</h1>
+  </div>
+  
+</div>
+
+
+
+<div data-role="page" id="page2"> 
+  <div data-role="header">
+  	<h1>第 2 页</h1>
+  </div>
+  <div data-role="content">
+  	
+	<!--搜索栏-->
+	<label for="search">搜索：</label>
+    <input type="search" name="search" id="search" placeholder="请输入搜索内容" />
+	<!--内容栏-->
+    <label for="info">介绍</label>
+    <textarea id="info" placeholder="请输入经历"></textarea>
+    <!--下拉选择框-->
+    <label for="sel"></label>
+    <select name="day" id="sel">
+    	<option value="" selected>请选择...</option> 
+        <option value="mon" >星期一</option> 	
+        <option value="tue" >星期二</option> 
+        <option value="wed" >星期三</option> 
+    </select>
+    <!--单选按钮-->
+    <fieldset data-role="controlgroup" data-type="horizontal">
+    	<legend>choose your gender:</legend>
+        <label for="boy">boy:</label>
+        <input type="radio" id="boy" name="sex" value="boy">
+        
+        <label for="girl">girl:</label>
+        <input type="radio" id="girl" name="sex" value="girl">
+    </fieldset>
+    <!--多选按钮-->
+    <fieldset data-role="controlgroup" data-type="horizontal">
+    	<legend>choose your gender:</legend>
+        <label for="book">book:</label>
+        <input type="checkbox" id="book" name="book" value="book">
+        
+        <label for="tv">tv:</label>
+        <input type="checkbox" id="tv" name="tv" value="tv">
+    </fieldset>
+    <!--滑块-->
+    <label for="phonts">Points:</label>
+    <input type="range" name="points" id="points" calue="50" min="0" max="100"/>
+    <!--开关-->
+    <label for="switch">开关:</label>
+    <select id="switch" data-role="slider">
+    	<option value="on" selected>on</option>
+    	<option value="off">off</option>
+    </select>
+    <a href="#page3">第 3 页</a>
+  </div>
+  
+  <div data-role="footer">
+  	<h1>页面跳转</h1>
+  </div>
+</div>
+
+
+<div data-role="page" id="page3">
+	<!-- 页眉默认三个按钮一行，页脚五个一行   data-position和data-fullscreen设置让地址栏消失   添加class="ui-btn-right" 可以控件右居-->
+  <div data-role="header" data-position="fixed" data-fullscreen="true">
+  	<a href="#page2" data-role="button" class="ui-btn-right">返回</a>
+  	<h1>只能有一文本+2按钮</h1>
+  </div>
+  <div data-role="content">
+  	<div class="ui-grid-b">
+		<div class="ui-block-a"><a href="#" data-role = "button" >按钮</a></div>
+		<div class="ui-block-b"><a href="#" data-role = "button" >按钮</a></div>
+		<div class="ui-block-c"><a href="#" data-role = "button" >按钮</a></div>
+		
+		<div class="ui-block-a"><a href="#" data-role = "button" >按钮</a></div>
+		<div class="ui-block-b"><a href="#" data-role = "button" >按钮</a></div>
+		
+		<div class="ui-block-a"><a href="#" data-role = "button" >按钮</a></div>
+	</div>
+  </div>
+  <div data-role="footer">
+  	  <div data-role="footer">
+  	  	<div data-role="navbar">
+  		<ul>
+  			<li><a href="#" data-icon="home">首页</a></li>
+ 			<li><a href="#" data-icon="search">搜索</a></li>
+ 			<li><a href="#" data-icon="back">返回</a></li>
+  			<li><a href="#" data-icon="home">首页</a></li>
+ 			<li><a href="#" data-icon="search">搜索</a></li> 			
+  		</ul>	
+  	</div>	
+  </div>
+  </div>
+</div>  
+
+</body>
+</html>
