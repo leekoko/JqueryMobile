@@ -1,5 +1,5 @@
-﻿# JqueryMobile
+# JqueryMobile
 
 ---
 
-## [基础知识](doc/jqueryBasics.md)
+## [1.基础知识](doc/jqueryBasics.md)
