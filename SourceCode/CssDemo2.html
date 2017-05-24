@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>照片墙</title>
+	<style type="text/css">
+		body {
+			background: url(./img/bg.jpg);
+			margin: 0;
+		}
+
+		.container{
+			position: relative;
+		}
+
+		img {
+			width:350px;
+			border: 1px solid #fff;
+			
+			/* css3 新属性：圆角 */
+			border-radius: 5px;
+			/* css3 新属性：阴影 */
+			box-shadow: 5px 5px 5px #333;
+			
+			padding: 5px;
+			background-color: #fff;
+
+			/* 绝对定位 */
+			position: absolute;
+
+			/* 过渡属性 */
+			transition: all 2s;
+		}
+
+		img.p1{
+			/* css3属性：反转：缩放 */
+			transform: scale(1) rotate(-30deg);
+
+			top: 150px;
+			left: 150px;
+		}
+
+		img.p2{
+			transform: scale(1) rotate(-10deg);
+			top: 150px;
+			left: 376px;
+		}
+		img.p3{
+			transform: scale(1) rotate(20deg);
+			top: 105px;
+			left: 750px;
+		}
+		img.p4{
+			transform: scale(1) rotate(-25deg);
+			top: 300px;
+			right: 300px;
+		}
+
+
+
+		img:hover{
+			transform: scale(1.5);
+			z-index: 99999;
+		}
+
+	</style>
+</head>
+<body>
+<!-- 
+	1. 添加背景图片
+	2. 照片添加到内容区域
+	3. 给照片添加一些样式
+	4. 开始制作动画
+		A → B
+
+ -->
+
+<div class="container">
+	<img src="./img/1.jpg" class="p1" alt="..." />	
+	<img src="./img/2.jpg" class="p2" alt="..." />	
+	<img src="./img/3.jpg" class="p3" alt="..." />	
+	<img src="./img/4.jpg" class="p4" alt="..." />	
+</div>
+
+
+
+</body>
+</html>

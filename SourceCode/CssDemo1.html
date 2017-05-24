@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>过渡属性</title>
+	<style type="text/css">
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: black;
+			color: #FFFFFF;
+			text-align: center;
+		}
+
+		div.d1	{
+			/* 添加一个颜色的过渡属性 */
+			transition: background-color 2s ease-in;
+			/* transition-timing-function: ease-in; */
+
+			/* 添加一个大小的过渡属性 */
+			transition: width 2s;
+			transition-delay: 2s;
+		}
+
+		div.d2	{
+			/* 添加一个颜色的过渡属性 */
+			transition: background-color 2s;
+			transition-timing-function: ease-out;
+
+			/* 添加一个大小的过渡属性 */
+			transition: width 2s;
+		}
+
+		p{
+			line-height: 200px;
+		}
+
+		/* 
+			1. 背景色变化：从黑色，过渡到红色（动画：从A到B）。
+			2. CSS3 过渡属性。添加到我要操作的元素（选择器）上。
+
+
+		*/
+		div:hover{
+			background-color: red;
+			width: 400px;
+		}
+
+	</style>
+</head>
+<body>
+<div class="d1">
+	<p>你好啊！</p>
+</div>
+
+<div class="d2">
+	<p>你好啊！</p>
+</div>
+</body>
+</html>
