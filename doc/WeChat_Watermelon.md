@@ -8,7 +8,7 @@
 ---
 
 ### 1.代码解释  
-<div data-role="controlgroup">：按钮组  
-<a data-role="collapsible">：下拉显示  
-word-wrap: break-word ：自动换行样式  
+1. ``<div data-role="controlgroup">``：按钮组  
+2. ``<a data-role="collapsible">``：下拉显示  
+3. ``word-wrap: break-word`` ：自动换行样式  
 
