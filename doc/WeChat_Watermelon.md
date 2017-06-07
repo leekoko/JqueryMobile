@@ -15,7 +15,7 @@
 之前的页面使用的是jquery mobile，但是做出来的效果不尽满意，所以打算改成bootstrap来做  
 jqueryMobile开发的效果图：  
 ![](../image/p1.jpg)  
-[源码](../SourceCode/xigua.html)
+[源码](../SourceCode/xigua.html)  
 
 ---
 
