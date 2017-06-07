@@ -131,7 +131,7 @@ dropdown-menu：表示下拉列表
 
 ---
 
-因为http://www.runoob.com/bootstrap有许多案例，说得非常明白，所以就不再这里列举了。（还有轮播图，分页，导航等）  
+因为 http://www.runoob.com/bootstrap 有许多案例，说得非常明白，所以就不再这里列举了。（还有轮播图，分页，导航等）  
 
 ---
 
