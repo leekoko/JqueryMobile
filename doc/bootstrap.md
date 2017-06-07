@@ -79,4 +79,67 @@ a:focus {
 ### 1.响应式图像  
 ``<img src="..." class="img-responsive" alt="响应式图像">``  
 宽度100%，高度auto,并且不超出父元素的尺寸  
-### 2.
+
+### 2.内联子标题  
+``<h1>我是标题1 h1. <small>我是副标题1 h1</small></h1>``  
+
+### 3.字体变化  
+``<small>（设置文本为父文本大小的 85%）、<strong>（设置文本为更粗的文本）、<em>（设置文本为斜体）``  
+
+### 4.添加地址  
+``<a href="mailto:#">mailto@somedomain.com</a>``  
+
+### 5.引用，声明  
+```xml
+<blockquote>
+  这是一个带有源标题的引用。
+  <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+</blockquote>
+```
+
+### 6.代码块  
+```xml
+<pre>
+&lt;article&gt;
+	&lt;h1&gt;Article Heading&lt;/h1&gt;
+&lt;/article&gt;
+</pre>
+```
+&lt表示<,&gt表示>  
+
+### 7.下拉菜单  
+```html
+<div class="dropdown">
+	<button type="button" class="btn dropdown-toggle"></button>
+	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+		<li role="presentation">
+			<a role="menuitem" tabindex="-1" href="#">Java</a>
+		</li>
+	</ul>
+</div>
+```  
+btn dropdown-toggle：表示未点前提示  
+dropdown-menu：表示下拉列表  
+
+### 8.按钮组  
+```html
+<div class="btn-group">
+    <button type="button" class="btn btn-default"></button>
+</div>
+```   
+另外还有按钮工具栏，嵌套按钮等  
+
+---
+
+因为http://www.runoob.com/bootstrap有许多案例，说得非常明白，所以就不再这里列举了。（还有轮播图，分页，导航等）  
+
+---
+
+## 4.网格系统  
+1. 定义每一行：``<div class="row" >``  
+2. 设立单元格的比例：``<div class="col-xs-6 col-sm-3">``  
+超小手机中占6/12,在小型设备中占3/12，另外md表示电脑，lg表示大型设备。12是分割出来的总份数  
+3. 嵌套列``<div class="col-md-9"><div class="col-md-6"> ``  
+表示从9/12中再等分6份出来  
+4. 偏移列：``<div class="col-xs-6 col-md-offset-3">``表示左边距增加三列  
+      
