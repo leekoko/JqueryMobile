@@ -19,4 +19,7 @@ jqueryMobile开发的效果图：
 
 ---
 
-
+## 3.BootStrap的尝试 
+这里使用简单的网格布局，目前只适应手机版，因为赶时间，做得相当粗糙     
+![](../image/p2.jpg)  
+[源码](../SourceCode/xigua_2.html)  
