@@ -1,6 +1,7 @@
 body{
 	font-family: "microsoft yahei",sans-serif;
 }
+/*nav*/
 .navbar-default{
 	background-color: white;
 	border: none;
@@ -29,4 +30,36 @@ body{
 }
 .navbar-toggle{
 	margin-top: 18px;
+}
+
+/*home*/
+#home{
+	margin-top: 70px;
+	background: url(../images/home-bg.jpg);
+	background-size: cover;
+/*	height: 500px;*  高度不设，自己填充*/
+	
+	color: #FFFFFF;  /*文字颜色*/
+	text-align: center;  /*文字居中*/
+	width: 100%;   /*文字宽度100%*/
+
+}
+.lvjing{  /* 建一个滤镜*/
+	width: 100%;
+	height: 100%;
+	background:rgba(0,0,0,0.7);  /*用rgba透明设置背景色*/
+	padding: 90px;   /*为文字添加内边距*/
+}
+#home h1{
+	font-weight: bold;
+	margin-top: 0;  /*去掉上边距*/
+	margin-bottom: 25px;   /*与下边内容拉开距离*/
+}
+#home p{
+	font-weight: 400;
+	line-height: 35px;
+}
+#home img{
+	margin-top: 30px;
+	display: inline-block;  /*加了之后,前面的内容对后面的排版不会产生影响*/
 }
