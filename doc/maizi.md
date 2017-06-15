@@ -77,7 +77,7 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
 
 ```
 效果图：  
-![](../image/bs1.png =450*500)
+![](../image/bs1.png width="450" height="500")  
 
 ---
 
