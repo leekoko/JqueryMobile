@@ -16,7 +16,7 @@
       <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
       <script src="https://code.jquery.com/jquery.js"></script>
       <!-- 包括所有已编译的插件 -->
-      <script src="js/bootstrap.min.js"></script>
+      <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  
  
       <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
@@ -136,10 +136,19 @@ dropdown-menu：表示下拉列表
 ---
 
 ## 4.网格系统  
+网格系统是基于container标签里面的，当设定列数超出12个的时候，就会溢出到下一行  
 1. 定义每一行：``<div class="row" >``  
 2. 设立单元格的比例：``<div class="col-xs-6 col-sm-3">``  
 超小手机中占6/12,在小型设备中占3/12，另外md表示电脑，lg表示大型设备。12是分割出来的总份数  
 3. 嵌套列``<div class="col-md-9"><div class="col-md-6"> ``  
 表示从9/12中再等分6份出来  
 4. 偏移列：``<div class="col-xs-6 col-md-offset-3">``表示左边距增加三列  
+
+
+
+---
+
+
+bootstrap里面有制作后台管理的案例http://v3.bootcss.com/examples/dashboard/  
+bootstrap&css3  
       
