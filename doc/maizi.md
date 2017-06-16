@@ -226,5 +226,63 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
 
 ---
 
+## 5.第三屏  
+### 1.结构  
+1. 不同类型的文字用不同个p来做  
+2. 添加小图标，用span标签  
+3. api网址：v3.bootcss.com  
 
+```html
+<!--第三屏s-->	
+		<section id="html5">
+			<div class="container">
+				<div class="col-md-6">
+					<h2>HTML5前端开发</h2>
+					<p>一线资深前端开发工程师倾情打造！助你完成普通程序员到优秀工程师的华丽升级！</p>
+					<p><span class="glyphicon glyphicon-fire mai-icon"></span>5与CSS3技术轻松实现设备自适应展示。</p>
+					<p><span class="glyphicon glyphicon-fire mai-icon"></span>清晰明了的语义代码结构，更高的可读性、更利于页面维护的。</p>
+				</div>
+				<div class="col-md-6">
+					<img src="images/html5.jpg" class="img-responsive" />
+				</div>
+			</div>
+		</section>
+<!--第三屏e-->	
+	
+```
 
+### 2.样式  
+1. 内容的对位使用padding内边距  
+2. 图标变圆：``border-radius:50%``  
+
+全局css:  
+```css
+.mai-icon{
+    background: #40d2b1;
+    color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 20px;
+}
+```  
+
+```css
+#html5{
+	background: #f8f8f8;
+	padding: 80px 0;
+}
+#html5 h2{
+	font-weight: bold;
+} 
+#html5 p{
+	line-height: 40px;
+}
+```
+
+效果图：  
+![](../image/bs4.png)  
+
+---  
