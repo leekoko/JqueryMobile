@@ -1,4 +1,4 @@
-# 学院bootstrap实战项目（前台+后台）  
+# K-Cat学院bootstrap实战项目（前台+后台）  
 
 ---
 

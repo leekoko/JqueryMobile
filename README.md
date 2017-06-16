@@ -16,4 +16,4 @@
 ## 2.案例  
 
 ### [1.微信活动界面-西瓜节](doc/WeChat_Watermelon.md)(bootstrap)  
-### [2.学院前台后台页面](doc/maizi.md)(bootstrap)  
+### [2.前端页面-K-Cat学院](doc/maizi.md)(bootstrap)  
