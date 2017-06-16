@@ -32,7 +32,7 @@ body{
 	margin-top: 18px;
 }
 
-/*home*/
+/*第一屏*/
 #home{
 	margin-top: 70px;
 	background: url(../images/home-bg.jpg);
@@ -62,4 +62,27 @@ body{
 #home img{
 	margin-top: 30px;
 	display: inline-block;  /*加了之后,前面的内容对后面的排版不会产生影响*/
+}
+/*第二屏*/
+#bbs{
+	padding:80px 0;
+	text-align: center;
+}
+#bbs .col-md-4{
+    padding: 15px;
+}
+#bbs .col-md-4:hover{
+    background: #f1f1f1;
+    box-shadow: 1px 1px 4px #ccc;
+}
+#bbs a{
+	color: #212121;
+	text-decoration: none;
+}
+
+#bbs img{   /*处理用了img-responsive之后的错位*/
+	margin:0 auto;
+}
+#bbs h3{
+	font-weight: bold;
 }

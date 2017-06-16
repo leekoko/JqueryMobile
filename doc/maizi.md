@@ -86,6 +86,7 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
 1. section代表的是章节，这里使用section来做模块  
 2. 空的栅格化系统可以用来占位置  
 3. img要自适应需要添加.img-responsive  
+
 ```html
 <!--第一屏s-->
 		<section id="home">
@@ -150,6 +151,73 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
 
 ---
 
+## 4.第二屏  
+### 1.结构  
+1. 添加img-responsive可能会导致图片错位，所以需要添加margin:0 auto;居中  
+2. 排版一般用h3做标题，用p做内容，用br换行  
+
+```html
+<!--第二屏s-->
+		<section id="bbs">
+			<div class="col-md-4">
+				<a href="http://www.kemao666.cn" target="_blank">
+					<img src="images/a.png" class="img-responsive"/>
+					<h3>Android开发</h3>
+					<p>Android开发技术交流、问题求助、实战案例分享</p>
+				</a>
+			</div>
+			<div class="col-md-4">
+				<a href="http://www.kemao666.cn" target="_blank">
+					<img src="images/b.png" class="img-responsive"/>
+					<h3>IOS开发</h3>
+					<p>iOS开发技术交流，海量iOS实战干货分享</p>
+				</a>
+			</div>
+			<div class="col-md-4">
+				<a href="http://www.kemao666.cn" target="_blank">
+					<img src="images/i.png" class="img-responsive"/>
+					<h3>嵌入式底层开发</h3>
+					<p>底层嵌入式开发、实战案例等技术交流讨论</p>
+				</a>
+			</div>
+		</section>
+<!--第二屏e-->	
+```
+
+### 2.样式  
+1. 让div中的所有文字居中：``text-align: center;``  
+2. 添加边框阴影：``box-shadow: 1px 1px 4px #ccc;``  
+3. 修改超链接的颜色和下划线：``text-decoration: none;``  
+
+```css
+#bbs{
+	padding:80px 0;
+	text-align: center;
+}
+#bbs .col-md-4{
+    padding: 15px;
+}
+#bbs .col-md-4:hover{
+    background: #f1f1f1;
+    box-shadow: 1px 1px 4px #ccc;
+}
+#bbs a{
+	color: #212121;
+	text-decoration: none;
+}
+
+#bbs img{   /*处理用了img-responsive之后的错位*/
+	margin:0 auto;
+}
+#bbs h3{
+	font-weight: bold;
+}  
+```  
+
+效果图：  
+![](../image/bs3.png)  
+
+---
 
 
 
