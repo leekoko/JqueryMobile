@@ -98,14 +98,16 @@ body{
 #bbs h3{
 	font-weight: bold;
 }
-/*第三屏*/
+/*第三屏+第四屏*/
 #html5{
 	background: #f8f8f8;
+}
+#html5,#bootstrap{
 	padding: 80px 0;
 }
-#html5 h2{
+#html5 h2,#bootstrap h2{
 	font-weight: bold;
 } 
-#html5 p{
-	line-height: 40px;
+#html5 p,#bootstrap p{
+	line-height: 27px;
 }

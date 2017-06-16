@@ -286,3 +286,49 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
 ![](../image/bs4.png)  
 
 ---  
+
+## 6.第四屏  
+### 1.结构  
+因为跟前面相似，复制前面标签，对id和内容进行更换  
+
+```html
+<!--第四屏s-->
+	<section id="bootstrap">
+		<div class="container">
+			<div class="col-md-6">
+				<img src="images/Bootstrap.jpg" class="img-responsive" />
+			</div>
+			<div class="col-md-6">
+				<h2>bootstrap实战视频教程</h2>
+				<p>Bootstrap 是最受欢迎的 HTML、CSS 和 JS 框架，用于开发响应式布局、移动设备优先的 WEB 项目。</p>
+				<p><span class="glyphicon glyphicon-fire mai-icon"></span>你的网站和应用能在 Bootstrap 的帮助下通过同一份代码快速、有效适配手机、平板、PC 设备。</p>
+				<p><span class="glyphicon glyphicon-fire mai-icon"></span>Bootstrap 提供了全面、美观的文档。你能在这里找到关于 HTML 元素、HTML 和 CSS 组件、jQuery 插件方面的所有详细文档。</p>
+			</div>
+		</div>
+	</section>
+<!--第四屏e-->
+```
+
+### 2.样式  
+样式的重复处理有点像代码编写，将相同的内容重复调用，不同的内容单独提取  
+
+```css
+/*第三屏+第四屏*/
+#html5{
+	background: #f8f8f8;
+}
+#html5,#bootstrap{
+	padding: 80px 0;
+}
+#html5 h2,#bootstrap h2{
+	font-weight: bold;
+} 
+#html5 p,#bootstrap p{
+	line-height: 27px;
+}
+```
+
+效果图：  
+![](../image/bs5.png)  
+
+---  
