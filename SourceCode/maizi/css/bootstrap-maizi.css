@@ -111,3 +111,37 @@ body{
 #html5 p,#bootstrap p{
 	line-height: 27px;
 }
+/*第五屏*/
+#contact{
+	background: url(../images/contact-bg.png) no-repeat;
+	background-size: cover;
+	color: #FFFFFF;
+	height: 500px;
+}
+#contact h2{
+	font-weight: bold;
+	margin-bottom: 25px;
+	margin-top: 0;   /* 去掉默认边框,对齐右边*/
+}
+#contact p{
+	line-height: 25px;
+	margin-bottom: 20px;
+}
+#contact .form-control {
+    border: none;
+    border-radius: 0;
+    height: 50px;
+    margin-bottom: 20px;
+}
+#contact textarea.form-control{   /*同一级的id和class不需要空格*/
+	height:auto;
+}
+#contact input[type="submit"]{
+	background: #40D2B1;
+	color: #fff;
+	font-weight:bold ;
+	transition: all 0.3s;  /* 添加淡入淡出效果*/
+}
+#contact input[type="submit"]:hover{
+	background: rgb(44,142,120);
+}
