@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">   
 		<meta http-equiv="x-ua-compatible" content="IE=Edge"> <!--IE8标准渲染模式-->
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-		<title>学院官网</title>
+		<title>K-Cat学院官网</title>
 <!-- 引入 Bootstrap -->
 		<link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
@@ -28,7 +28,7 @@
 		            <span class="icon-bar"></span>
 		        </button>
 	<!--logo-->
-		        <a class="navbar-brand" href="index.html">麦子学院</a>
+		        <a class="navbar-brand" href="index.html">K-Cat学院</a>
 		    </div>
 		    
 	<!-- 导航内容-->
@@ -36,7 +36,7 @@
 		        <ul class="nav navbar-nav navbar-right">
 		            <li><a href="#home">首页</a></li>
 		            <li><a href="#bbs">论坛</a></li>
-		            <li><a href="#">前端开发</a></li>
+		            <li><a href="#html5">前端开发</a></li>
 		            <li><a href="#">最新课程</a></li>
 		            <li><a href="#">移动APP</a></li>
 		            <li><a href="#">联系我们</a></li>
@@ -49,17 +49,19 @@
 <!--第一屏s-->
 		<section id="home">
 			<div class="lvjing">
-				<div class="row"> <!-- 添加删格系统-->
-					<div class="col-md-1"></div>   <!--用来占位置-->
-					<div class="col-md-10">
-						<h1>bootstrap实战课程等你来战！</h1>
-						<p>
-							本套课程适用于：1.WEB开发人员；2.网站维护人员、管理人员<br />
-							培训技能的目标：使用bootstrap框架快速构建响应式网页，颠覆传统WEB前端！
-						</p>
-						<img src="images/php.jpg" alt="php" class="img-responsive"/> <!--img-responsive让图片自适应-->
+				<div class="container">
+					<div class="row"> <!-- 添加删格系统-->
+						<div class="col-md-1"></div>   <!--用来占位置-->
+						<div class="col-md-10">
+							<h1>bootstrap实战课程等你来战！</h1>
+							<p>
+								本套课程适用于：1.WEB开发人员；2.网站维护人员、管理人员<br />
+								培训技能的目标：使用bootstrap框架快速构建响应式网页，颠覆传统WEB前端！
+							</p>
+							<img src="images/php.jpg" alt="php" class="img-responsive"/> <!--img-responsive让图片自适应-->
+						</div>
+						<div class="col-md-1"></div>
 					</div>
-					<div class="col-md-1"></div>
 				</div>
 			</div>
 		</section>
@@ -67,29 +69,53 @@
 
 <!--第二屏s-->
 		<section id="bbs">
-			<div class="col-md-4">
-				<a href="http://www.kemao666.cn" target="_blank">
-					<img src="images/a.png" class="img-responsive"/>
-					<h3>Android开发</h3>
-					<p>Android开发技术交流、问题求助、实战案例分享</p>
-				</a>
-			</div>
-			<div class="col-md-4">
-				<a href="http://www.kemao666.cn" target="_blank">
-					<img src="images/b.png" class="img-responsive"/>
-					<h3>IOS开发</h3>
-					<p>iOS开发技术交流，海量iOS实战干货分享</p>
-				</a>
-			</div>
-			<div class="col-md-4">
-				<a href="http://www.kemao666.cn" target="_blank">
-					<img src="images/i.png" class="img-responsive"/>
-					<h3>嵌入式底层开发</h3>
-					<p>底层嵌入式开发、实战案例等技术交流讨论</p>
-				</a>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<a href="http://www.kemao666.cn" target="_blank">
+							<img src="images/a.png" class="img-responsive"/>
+							<h3>Android开发</h3>
+							<p>Android开发技术交流、问题求助、实战案例分享</p>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="http://www.kemao666.cn" target="_blank">
+							<img src="images/i.png" class="img-responsive"/>
+							<h3>IOS开发</h3>
+							<p>iOS开发技术交流，海量iOS实战干货分享</p>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="http://www.kemao666.cn" target="_blank">
+							<img src="images/b.png" class="img-responsive"/>
+							<h3>嵌入式底层开发</h3>
+							<p>底层嵌入式开发、实战案例等技术交流讨论</p>
+						</a>
+					</div>
+				</div>
 			</div>
 		</section>
 <!--第二屏e-->		
+	
+<!--第三屏s-->	
+		<section id="html5">
+			<div class="container">
+				<div class="col-md-6">
+					<h2>HTML5前端开发</h2>
+					<p>一线资深前端开发工程师倾情打造！助你完成普通程序员到优秀工程师的华丽升级！</p>
+					<p>使用HTML5与CSS3技术轻松实现设备自适应展示。</p>
+					<p>清晰明了的语义代码结构，更高的可读性、更利于页面维护的。</p>
+				</div>
+				<div class="col-md-6">
+					<img src="images/html5.jpg" class="img-responsive" />
+				</div>
+				
+			</div>
+			
+			
+		</section>
+<!--第三屏e-->	
+	
 	
 	</body>
 </html>

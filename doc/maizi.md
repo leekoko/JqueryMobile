@@ -31,7 +31,7 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
 		            <span class="icon-bar"></span>
 		        </button>
 	<!--logo-->
-		        <a class="navbar-brand" href="index.html">麦子学院</a>
+		        <a class="navbar-brand" href="index.html">K-Cat学院</a>
 		    </div>
 		    
 	<!-- 导航内容-->
@@ -91,17 +91,19 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
 <!--第一屏s-->
 		<section id="home">
 			<div class="lvjing">
-				<div class="row"> <!-- 添加删格系统-->
-					<div class="col-md-1"></div>   <!--用来占位置-->
-					<div class="col-md-10">
-						<h1>bootstrap实战课程等你来战！</h1>
-						<p>
-							本套课程适用于：1.WEB开发人员；2.网站维护人员、管理人员<br />
-							培训技能的目标：使用bootstrap框架快速构建响应式网页，颠覆传统WEB前端！
-						</p>
-						<img src="images/php.jpg" alt="php" class="img-responsive"/> <!--img-responsive让图片自适应-->
+				<div class="container">
+					<div class="row"> <!-- 添加删格系统-->
+						<div class="col-md-1"></div>   <!--用来占位置-->
+						<div class="col-md-10">
+							<h1>bootstrap实战课程等你来战！</h1>
+							<p>
+								本套课程适用于：1.WEB开发人员；2.网站维护人员、管理人员<br />
+								培训技能的目标：使用bootstrap框架快速构建响应式网页，颠覆传统WEB前端！
+							</p>
+							<img src="images/php.jpg" alt="php" class="img-responsive"/> <!--img-responsive让图片自适应-->
+						</div>
+						<div class="col-md-1"></div>
 					</div>
-					<div class="col-md-1"></div>
 				</div>
 			</div>
 		</section>
@@ -155,30 +157,35 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
 ### 1.结构  
 1. 添加img-responsive可能会导致图片错位，所以需要添加margin:0 auto;居中  
 2. 排版一般用h3做标题，用p做内容，用br换行  
+3. 嵌套关系：最外层是section--container--row--col
 
 ```html
 <!--第二屏s-->
 		<section id="bbs">
-			<div class="col-md-4">
-				<a href="http://www.kemao666.cn" target="_blank">
-					<img src="images/a.png" class="img-responsive"/>
-					<h3>Android开发</h3>
-					<p>Android开发技术交流、问题求助、实战案例分享</p>
-				</a>
-			</div>
-			<div class="col-md-4">
-				<a href="http://www.kemao666.cn" target="_blank">
-					<img src="images/b.png" class="img-responsive"/>
-					<h3>IOS开发</h3>
-					<p>iOS开发技术交流，海量iOS实战干货分享</p>
-				</a>
-			</div>
-			<div class="col-md-4">
-				<a href="http://www.kemao666.cn" target="_blank">
-					<img src="images/i.png" class="img-responsive"/>
-					<h3>嵌入式底层开发</h3>
-					<p>底层嵌入式开发、实战案例等技术交流讨论</p>
-				</a>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<a href="http://www.kemao666.cn" target="_blank">
+							<img src="images/a.png" class="img-responsive"/>
+							<h3>Android开发</h3>
+							<p>Android开发技术交流、问题求助、实战案例分享</p>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="http://www.kemao666.cn" target="_blank">
+							<img src="images/i.png" class="img-responsive"/>
+							<h3>IOS开发</h3>
+							<p>iOS开发技术交流，海量iOS实战干货分享</p>
+						</a>
+					</div>
+					<div class="col-md-4">
+						<a href="http://www.kemao666.cn" target="_blank">
+							<img src="images/b.png" class="img-responsive"/>
+							<h3>嵌入式底层开发</h3>
+							<p>底层嵌入式开发、实战案例等技术交流讨论</p>
+						</a>
+					</div>
+				</div>
 			</div>
 		</section>
 <!--第二屏e-->	
