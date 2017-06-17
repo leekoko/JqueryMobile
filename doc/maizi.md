@@ -394,7 +394,6 @@ K-Cat学院是广州科猫信息技术有限公司旗下一个IT在线教育平�
 	background: url(../images/contact-bg.png) no-repeat;
 	background-size: cover;
 	color: #FFFFFF;
-	height: 500px;
 }
 #contact h2{
 	font-weight: bold;
@@ -429,3 +428,63 @@ K-Cat学院是广州科猫信息技术有限公司旗下一个IT在线教育平�
 ![](../image/bs6.png)  
 
 ---  
+
+## 8.脚部  
+### 1.结构   
+脚部使用footer标签，里面的栅格化使用12  
+```html
+<!--脚部s-->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<p>
+					Copyright&nbsp;©&nbsp;2012-2015&nbsp;&nbsp;www.kemao666.cn&nbsp;&nbsp;蜀ICP备13014270号-4
+				</p>
+			</div>
+		</div>		
+	</div>
+</footer>
+<!--脚部e-->
+```
+
+### 2.样式   
+
+```css
+footer{
+	font-weight: 400;
+	text-align: center;
+	padding: 20px;
+}
+```
+
+---
+
+## 9.效果插件  
+1. 单一面导航插件jquery.singlePageNav.min.js&wow.min.js,还有一个css插件animate.css  
+2. 添加向下滚动，导入css和js文件之后执行singlePageNav方法，如果位置需要调整，添加offset参数  
+```javascript
+		$('.nav').singlePageNav({   //导航跳转插件 
+			offset:70     //设置偏移量
+		}); 
+```  
+3. 处理小屏幕点击后折叠，使用collapse('hide')  
+```javascript
+		$('navbar-collapse a').click(function(){
+			$('navbar-collapse').collapse('hide');   //向上折叠隐藏
+		});
+```
+4. 添加动画的方式：首先在script中添加``new WOW().init();``  
+然后在类中添加 wow XXX，XXX的内容在
+daneden.github.io/animate.css里面找   
+
+其他辅助方法：  
+* 执行时间：``data-wow-duration="1s"``  
+* 等待时间：``data-wow-delay="1s"``  
+* 距离执行动画：``data-wow-offset="10"``  
+* 重复次数：``data-wow-iteration="10"``  
+
+--- 
+
+[项目源码](../SourceCode/maizi/index.html)  
+[项目素材](../SourceCode/maizi/)  

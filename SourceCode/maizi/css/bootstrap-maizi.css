@@ -116,7 +116,6 @@ body{
 	background: url(../images/contact-bg.png) no-repeat;
 	background-size: cover;
 	color: #FFFFFF;
-	height: 500px;
 }
 #contact h2{
 	font-weight: bold;
@@ -144,4 +143,10 @@ body{
 }
 #contact input[type="submit"]:hover{
 	background: rgb(44,142,120);
+}
+/*footer*/
+footer{
+	font-weight: 400;
+	text-align: center;
+	padding: 20px;
 }
