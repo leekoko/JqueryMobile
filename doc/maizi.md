@@ -476,7 +476,7 @@ footer{
 ```
 4. 添加动画的方式：首先在script中添加``new WOW().init();``  
 然后在类中添加 wow XXX，XXX的内容在
-[daneden.github.io/animate.css](daneden.github.io/animate.css) 里面找   
+https://daneden.github.io/animate.css 里面找   
 
 其他辅助方法：  
 * 执行时间：``data-wow-duration="1s"``  
