@@ -164,7 +164,35 @@
 
  ---
 
-## 3.
+## 3.今日访问统计图
+
+1. 下载引入chartjs.js文件:http://www.chartjs.org/  
+2. 使用栅格化，里面放面板  
+3. panel-body中添加画布，画布id设为canvas，并且占面板100%（12格）,引入曲线图插件（放在script.js里面）  
+
+```html
+<!--今日访问统计图s-->
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<!--添加一个面板-->
+			<div class="panel-heading">网站统计数据</div>
+			<div class="panel-body">
+				<canvas id="canvas" class="col-md-12"></canvas>
+			</div>
+		</div>	
+	</div>
+<!--今日访问统计图e-->
+```
+
+图标数据信息在script.js中修改，注释里面有写，数据的多少在data数组里面修改  
+
+效果图：  
+
+![](../image/bs9.png)
+
+---
+
+## 4.
 
 
 

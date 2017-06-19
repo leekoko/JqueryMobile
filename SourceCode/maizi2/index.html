@@ -12,6 +12,9 @@
 <!-- 包括所有已编译的插件 -->
 		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="css/bootstrap-maizi.css" /> <!-- 覆盖原生样式-->
+		<script src="js/Chart.js"></script>
+		<script src="js/script.js"></script>
+		
 	</head>
 	
 	<body>
@@ -146,6 +149,18 @@
 					</div>
 				</div>
 <!--网站热帖e-->
+
+<!--今日访问统计图s-->
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<!--添加一个面板-->
+						<div class="panel-heading">网站统计数据</div>
+						<div class="panel-body">
+							<canvas id="canvas" class="col-md-12"></canvas>
+						</div>
+					</div>	
+				</div>
+<!--今日访问统计图e-->
 
 
 			</div>
