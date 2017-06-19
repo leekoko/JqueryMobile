@@ -192,11 +192,49 @@
 
 ---
 
-## 4.
+## 4.进度条
 
+1. 做个栅格化，放个面板，里面复制一下进度条  
+2. 添加文字标签，设置下边距调整总体表格大小  
 
+```html
+<!--状态进度条s-->
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<!--添加一个面板-->
+			<div class="panel-heading">服务器状态</div>
+			<div class="panel-body">
+				<p>内存使用率：40%</p>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+					</div>
+				</div>
+				<p>数据库使用率：20%</p>
+				<div class="progress">
+					<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+					</div>
+				</div>
+				<p>磁盘使用率：60%</p>
+				<div class="progress">
+					<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+					</div>
+				</div>
+				<p>CPU使用率：80%</p>
+				<div class="progress">
+					<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+<!--状态进度条e-->
+```
 
+效果图：  
 
+![](../image/bs10.png)
+
+---
 
 
 

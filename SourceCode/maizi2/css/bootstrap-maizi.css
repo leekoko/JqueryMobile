@@ -2,7 +2,10 @@ body{
 	font-family: "microsoft yahei",sans-serif;
 	padding-top: 50px;
 }
-
+/*进度条*/
+.panel-body .progress {
+	margin-bottom: 15px;	
+}	
 
 
 
