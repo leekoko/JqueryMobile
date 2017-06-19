@@ -6,7 +6,15 @@ body{
 .panel-body .progress {
 	margin-bottom: 15px;	
 }	
-
+/*留言板*/
+.ph64{
+	width: 64px;
+	height:64px;
+	border-radius:50% ;	
+}
+.mar_t15{
+	margin-top: 15px;
+}
 
 
 /*footer*/

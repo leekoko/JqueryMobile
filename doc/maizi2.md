@@ -236,5 +236,119 @@
 
 ---
 
+## 5.留言板    
 
+### 1.结构   
 
+1. 留言板放在栅格化布局中，再添加一个面板，里面再嵌套一个栅格化布局  
+2. 使用**媒体对象**做留言板：更改图片，修改标题，修改留言内容  
+3. media中添加well可以添加边框，media-left可以控制图片左右  
+4. 用form-group来做留言输入框，label为提示文字，textarea为输入框  
+5. 用面板做联系人，里面放list-group  
+
+```html
+<!--留言板s-->
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<!--添加一个面板-->
+			<div class="panel-heading">团队留言板</div>
+			<div class="panel-body">
+				<div class="col-md-7">
+					<div class="media well"> <!-- well为边框-->
+						<div class="media-left">
+							<a href="#">
+								<img class="media-object ph64" src="images/a.png" alt="卓大哥">
+							</a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">卓大哥</h4>
+							技术大哥，今晚请把网站程序升级一下哈，现在的系统有漏洞，安全起见！
+						</div>
+					</div>
+				
+					<div class="media well">  <!--well为边框-->
+						<div class="media-body text-right">
+							<h4 class="media-heading">技术王</h4>
+							收到，今晚凌晨2点准时升级！	
+						</div>
+						<div class="media-right">
+							<a href="#">
+								<img class="media-object ph64" src="images/i.png" alt="卓大哥">
+							</a>
+						</div>
+					</div>
+				
+					<div class="media well">
+						<div class="media-body text-right">
+							<h4 class="media-heading">技术王</h4>
+							你先在站点发布一下通知哈！	
+						</div>
+						<div class="media-right">
+							<a href="#">
+								<img class="media-object ph64" src="images/i.png" alt="卓大哥">
+							</a>
+						</div>
+					</div>
+				
+					<div class="media well">
+						<div class="media-left">
+							<a href="#">
+								<img class="media-object ph64" src="images/a.png" alt="卓大哥">
+							</a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">卓大哥</h4>
+							好嘞。
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-5">
+					<form action="#">
+						<div class="form-group">
+							<label for="text1">输入留言内容</label>
+							<textarea class="form-control" id="text1" rows="5" cols="10" placeholder="请输入留言内容"></textarea>
+							<button type="submit" class="btn btn-default mar_t15">留言</button>
+						</div>
+					</form>
+					<div class="panel panel-default">
+						<!--添加一个面板-->
+						<div class="panel-heading">团队联系手册</div>
+						<div class="panel-body">
+							<ul class="list-group">
+								<li class="list-group-item">站长(李小龙)：<span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;13134848615</li>
+								<li class="list-group-item">技术(大牛哥)：<span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;13456127694</li>
+								<li class="list-group-item">推广(张二哥)：<span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;13457815482</li>
+								<li class="list-group-item">客服(王女士)：<span class="glyphicon glyphicon-phone"></span>&nbsp;&nbsp;13134567782&nbsp;&nbsp;<span class="glyphicon glyphicon-phone-alt"></span>&nbsp;&nbsp;028-888888</li>
+
+							</ul>	
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>		
+	</div>
+<!--留言板e-->
+```
+
+## 2.样式  
+
+1. 新增一个头像样式，设置宽高，圆形(以后可以多次使用)  
+2. 新增上边距样式  
+
+```css
+.ph64{
+	width: 64px;
+	height:64px;
+	border-radius:50% ;	
+}
+.mar_t15{
+	margin-top: 15px;
+}
+```
+
+效果图：  
+
+![](../image/bs11.png)
+
+---
