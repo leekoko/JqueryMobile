@@ -331,7 +331,7 @@
 <!--留言板e-->
 ```
 
-## 2.样式  
+### 2.样式
 
 1. 新增一个头像样式，设置宽高，圆形(以后可以多次使用)  
 2. 新增上边距样式  
@@ -461,6 +461,58 @@
 ![](../image/bs12.png)  
 
 ---
+
+## 7.用户搜索  
+
+1. 重新做一个页面，将active设置在用户搜索上  
+2. 项目卡仍然留着，但是把table修改为from  
+3. 用from-group，里面包含label做文字提示，input做输入框，select做下拉框。外面放button做提交按钮  
+
+```html
+<form action="#" class="user_search">
+						<div class="alert alert-info" role="alert">
+							<strong>技巧提示：</strong>
+							支持模糊搜索和匹配搜索，匹配搜索使用*代替！
+						</div>
+						<div class="form-group">
+							<label for="name">用户名</label>
+							<input type="text" id="name" class="form-control" placeholder="请输入用户名" />
+						</div>
+						<div class="form-group">
+							<label for="uid">UID</label>
+							<input type="text" id="uid" class="form-control" placeholder="请输入用户UID" />
+						</div>
+						<div class="form-group">
+							<label for="yonghuzu">选择用户组</label>
+							<select id="yonghuzu" class="form-control">
+								<option>限制会员</option>
+								<option>新手上路</option>
+								<option>注册会员</option>
+								<option>中级会员</option>
+								<option>高级会员</option>
+							</select>
+						</div>
+						<button type="submit" class="btn btn-default">提交</button>
+					</form>			
+```
+
+效果图：  
+
+![](../image/bs13.png)
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

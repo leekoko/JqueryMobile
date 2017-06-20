@@ -23,6 +23,13 @@ body{
 	margin: 0;
 	font-size: 16px;	
 }
+/*搜索表单边框*/
+.user_search{
+	padding: 10px;
+	border: solid 1px #ddd;
+	border-top:none ;
+	
+}
 
 
 /*footer*/
