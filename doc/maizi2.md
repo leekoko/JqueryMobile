@@ -352,3 +352,123 @@
 ![](../image/bs11.png)
 
 ---
+
+## 6.用户管理  
+
+### 1.结构  
+
+1. 用list-group做竖直小导航  
+
+```html
+<!--用户列表小导航s-->
+  <div class="col-md-2">
+    <div class="list-group">
+      <a href="user_list.html" class="list-group-item active">用户管理</a>
+      <a href="user_list.html" class="list-group-item">用户搜索</a>
+      <a href="user_list.html" class="list-group-item">添加用户</a>
+    </div>
+  </div>
+<!--用户列表小导航e-->
+```
+
+2. 用项目卡+pageheader做用户列表  
+
+```html
+<!--用户列表内容s-->
+    <div class="col-md-10">
+      <div class="page-header">
+        <h1>用户管理</h1>
+      </div>
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a href="#">用户列表</a>
+        </li>
+        <li>
+          <a href="#">用户搜索</a>
+        </li>
+        <li>
+          <a href="#">添加用户</a>
+        </li>
+      </ul>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>用户名</th>
+            <th>邮箱</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>张三</td>
+            <td>908230189@qq.com</td>
+            <td>  
+              <div role="presentation" class="dropdown">   <!--修改为div-->
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">操作<span class="caret"></span>  <!-- 修改为button-->
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">编辑</a></li>
+                  <li><a href="#">删除</a></li>
+                  <li><a href="#">锁定</a></li>
+                  <li><a href="#">修改密码</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>...
+```
+
+引用dropdown-menu做下拉框  
+
+3. 在栅格布局中，table外引用导航条  
+
+```html
+    <!--导航内容-->
+    <nav aria-label="Page navigation" class="pull-right">
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">1</a>
+        </li>
+        <li>
+          <a href="#">2</a>
+        </li>
+        <li>
+          <a href="#">3</a>
+        </li>
+        <li>
+          <a href="#">4</a>
+        </li>
+        <li>
+          <a href="#">5</a>
+        </li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+```
+
+效果图：  
+
+![](../image/bs12.png)  
+
+---
+
+
+
+
+
+
+
+
+
+
+
