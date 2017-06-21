@@ -729,7 +729,13 @@
 
 ## 12.项目总结
 
-1. bootstrap模板网站：bootwatch.com        
+1. bootstrap模板网站：bootwatch.com（修改css文件,默认样式就会改变）        
+2. bootstrap模板网站2：bootwatch.bootku.com   
+
+---
+
+[项目源码](../SourceCode/maizi2/index.html)    
+[项目素材](../SourceCode/maizi2/)    
 
 
 
