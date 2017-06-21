@@ -630,9 +630,38 @@
 
 ---
 
-## 10.
+## 10.添加文章  
+
+1. 添加文章就是在栅格化里面添加form标签，form标签里面再添加class="form-group"  
 
 
+2. 每一个里面包裹label和input输入框/textarea输入框  
+3. 最后一个checkbox的div，里面包裹label（包裹input）和button  
+
+```html
+  <form action="#" class="mar_t15">
+    <div class="form-group">
+      <label for="title">标题</label>
+      <input type="text" id="title" class="form-control" placeholder="请输入文章标题" />
+    </div>
+    <div class="form-group">
+      <label for="content">文章内容</label>
+      <textarea class="form-control" rows="15" cols="10" placeholder="请输入文章正文部分" id="content"></textarea>
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox">全局置顶</label>
+      <button type="submit" class="btn btn-default pull-right">发布文章</button>
+    </div>
+  </form>
+```
+
+效果图：  
+
+![](../image/bs16.png)
+
+---
+
+## 11.
 
 
 
