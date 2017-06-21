@@ -1,4 +1,4 @@
-# K-Cat学院前台页面实战项目  
+# K-Cat学院前台页面练习项目  
 
 ---
 
@@ -6,9 +6,9 @@
 1. 设置中文语言：``<html lang="zh-CN">``  
 2. IE8开启渲染模式：``<meta http-equiv="x-ua-compatible" content="IE=Edge">``  
 3. 视窗的配置：``<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">``  
-initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例  
+   initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例  
 4. 引入jq文件，bootstrap css文件，js文件（使用加速器的方式引入）  
-（百度静态网站加载库：http://cdn.code.baidu.com/）  
+   （百度静态网站加载库：http://cdn.code.baidu.com/）  
 
 ---
 
@@ -108,7 +108,7 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
 			</div>
 		</section>
 <!--第一屏e-->
-```  
+```
 
 ### 2.样式  
 1. 当我们排版文字的时候，常用的有``text-align：center``设置居中  
@@ -219,7 +219,7 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
 #bbs h3{
 	font-weight: bold;
 }  
-```  
+```
 
 效果图：  
 ![](../image/bs3.png)  
@@ -267,7 +267,7 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
     line-height: 40px;
     margin-right: 20px;
 }
-```  
+```
 
 ```css
 #html5{
@@ -285,7 +285,7 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
 效果图：  
 ![](../image/bs4.png)  
 
----  
+---
 
 ## 6.第四屏  
 ### 1.结构  
@@ -331,7 +331,7 @@ initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例
 效果图：  
 ![](../image/bs5.png)  
 
----  
+---
 
 ## 7.第五屏  
 ### 1.结构  
@@ -382,7 +382,7 @@ K-Cat学院是广州科猫信息技术有限公司旗下一个IT在线教育平�
 		</div>
 	</section>
 <!--第五屏e-->
-```  
+```
 
 ### 2.样式   
 1. 淡入淡出效果:``transition: all 0.3s;``  
@@ -427,7 +427,7 @@ K-Cat学院是广州科猫信息技术有限公司旗下一个IT在线教育平�
 效果图：  
 ![](../image/bs6.png)  
 
----  
+---
 
 ## 8.脚部  
 ### 1.结构   
@@ -467,7 +467,7 @@ footer{
 		$('.nav').singlePageNav({   //导航跳转插件 
 			offset:70     //设置偏移量
 		}); 
-```  
+```
 3. 处理小屏幕点击后折叠，使用collapse('hide')  
 ```javascript
 		$('navbar-collapse a').click(function(){
@@ -475,8 +475,8 @@ footer{
 		});
 ```
 4. 添加动画的方式：首先在script中添加``new WOW().init();``  
-然后在类中添加 wow XXX，XXX的内容在
-https://daneden.github.io/animate.css 里面找   
+   然后在类中添加 wow XXX，XXX的内容在
+   https://daneden.github.io/animate.css 里面找   
 
 其他辅助方法：  
 * 执行时间：``data-wow-duration="1s"``  
@@ -484,7 +484,7 @@ https://daneden.github.io/animate.css 里面找
 * 距离执行动画：``data-wow-offset="10"``  
 * 重复次数：``data-wow-iteration="10"``  
 
---- 
+---
 
 [项目源码](../SourceCode/maizi/index.html)  
 [项目素材](../SourceCode/maizi/)  
