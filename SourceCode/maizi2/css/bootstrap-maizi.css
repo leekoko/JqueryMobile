@@ -15,6 +15,9 @@ body{
 .mar_t15{
 	margin-top: 15px;
 }
+.pad0{
+	padding: 0;
+}
 /*用户列表标题文字*/
 .page-header {
 	margin-top: 0;	
@@ -30,6 +33,14 @@ body{
 	border-top:none ;
 	
 }
+/*标签*/
+.taglist{
+	padding-top: 15px;
+}
+.taglist .alert{
+	margin: 0 15px 15px 0;
+}
+
 
 
 /*footer*/

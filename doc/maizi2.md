@@ -655,13 +655,81 @@
   </form>
 ```
 
-效果图：  
+效果图：    
 
 ![](../image/bs16.png)
 
 ---
 
-## 11.
+## 11.标签页面  
+
+做两个栅格化，第一个包输入框和按钮，第二个包标签。（标签来自于提示框）  
+
+### 1.结构  
+
+```html
+<!--标签内容s-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>标签管理</h1>
+      </div>
+      <div class="col-md-12">
+        <form>
+          <div class="col-md-10 pad0">
+            <input class="form-control" placeholder="请输入要添加的标签" />
+          </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-default">添加</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-12 taglist">
+        <div class="alert alert-warning alert-dismissible fade in pull-left" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <strong>bootstrap</strong>
+        </div>
+        <div class="alert alert-info alert-dismissible fade in pull-left" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <strong>K-Cat</strong>
+        </div>
+        <div class="alert alert-warning alert-dismissible fade in pull-left" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <strong>科猫</strong>
+        </div>
+      </div>
+    </div>				
+  </div>
+</div>
+<!--标签内容e-->
+```
+
+### 2.样式  
+
+标签需要调整，整体跟上面一点距离，每一个左右还要距离  
+
+```css
+/*标签*/
+.taglist{
+	padding-top: 15px;
+}
+.taglist .alert{
+	margin: 0 15px 15px 0;
+}
+```
+
+效果图：  
+
+![](../image/bs17.png)  
+
+
+
+---
+
+## 12.项目总结
+
+1. bootstrap模板网站：bootwatch.com        
 
 
 
