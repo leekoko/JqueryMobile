@@ -571,57 +571,57 @@
 
 ## 9.内容管理 
 
-内容管理页面修改前面的用户列表，改导航，改文字  
+内容管理页面修改前面的用户列表，改导航链接，删除弹出框相关内容，改文字  
 
 ```html
 <!--用户列表小导航s-->
 <div class="col-md-2">
   <div class="list-group">
-    <a href="user_list.html" class="list-group-item active">管理文章</a>
-    <a role="button" href="" class="list-group-item" data-toggle="modal" data-target="#myModal">添加文章</a>
+    <a href="content.html" class="list-group-item active">管理文章</a>
+    <a href="content_post.html" class="list-group-item">添加文章</a>
   </div>
 </div>
 <!--用户列表小导航e-->
 
 <!--用户列表内容s-->
-  <div class="col-md-10">
-    <div class="page-header">
-      <h1>文章管理</h1>
-    </div>
-    <ul class="nav nav-tabs">
-      <li class="active">
-        <a href="user_list.html">文章列表</a>
-      </li>
-      <li>
-        <a href="" data-toggle="modal" data-target="#myModal">添加文章</a>
-      </li>
-    </ul>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>文章标题</th>
-          <th>作者</th>
-          <th>发布时间</th>
-          <th>操作</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">泛Mooc职业教育， 效果和就业为王</th>
-          <td>张三</td>
-          <td>2015/08/08</td>
-          <td>  
-            <div role="presentation" class="dropdown">   <!--修改为div-->
-              <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">操作<span class="caret"></span>  <!-- 修改为button-->
-              </button>
-              <ul class="dropdown-menu">
-                <li><a href="#">编辑</a></li>
-                <li><a href="#">删除</a></li>
-                <li><a href="#">全局置顶</a></li>
-              </ul>
-            </div>
-          </td>
-        </tr>...
+<div class="col-md-10">
+  <div class="page-header">
+    <h1>文章管理</h1>
+  </div>
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="content.html">文章列表</a>
+    </li>
+    <li>
+      <a href="content_post.html">文章列表</a>
+    </li>
+  </ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>文章标题</th>
+        <th>作者</th>
+        <th>发布时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">泛Mooc职业教育， 效果和就业为王</th>
+        <td>张三</td>
+        <td>2015/08/08</td>
+        <td>  
+          <div role="presentation" class="dropdown">   <!--修改为div-->
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">操作<span class="caret"></span>  <!-- 修改为button-->
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">编辑</a></li>
+              <li><a href="#">删除</a></li>
+              <li><a href="#">全局置顶</a></li>
+            </ul>
+          </div>
+        </td>
+      </tr>
 ```
 
 效果图：  
