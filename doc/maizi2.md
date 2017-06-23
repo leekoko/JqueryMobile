@@ -729,7 +729,7 @@
 
 ## 12.项目总结
 
-1. bootstrap模板网站：http://bootwatch.com（修改css文件,默认样式就会改变）        
+1. bootstrap模板网站：http://bootwatch.com  
 2. bootstrap模板网站2：http://bootwatch.bootku.com   
 
 ---
