@@ -15,8 +15,14 @@ body{
 .mar_t15{
 	margin-top: 15px;
 }
+.mar_b15{
+	margin-bottom: 15px;
+}
 .pad0{
 	padding: 0;
+}
+.mar_l40{
+	margin-left: 40px;
 }
 /*用户列表标题文字*/
 .page-header {
