@@ -1,0 +1,12 @@
+﻿# 忽略 HBuilder 创建的 .project 文件
+
+.project
+
+
+
+
+# 忽略 HBuilder 创建的 .DS_Store 文件
+.DS_Store
+
+
+
