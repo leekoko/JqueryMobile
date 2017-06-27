@@ -1,8 +1,6 @@
-# bootstrap
+# bootstrap  
 
-[TOC]
-
-## 1.环境搭配  
+## 1.环境搭配    
 1. 基础bootstrap模板  
 ```html
 <!DOCTYPE html>
