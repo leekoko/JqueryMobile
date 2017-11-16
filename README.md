@@ -9,9 +9,9 @@
 
 ### [4.jQueryUI-DataGrid](doc/jqueryUI_dataGrid.md)  
 
-### [5.easyUI-DataGrid](doc/easyUI_dataGrid.md)
+### [5.easyUI-DataGrid](doc/easyUI_dataGrid.md)   
 
-
+### [6.bootstrap表单校验](doc/bootstrapValidator.md)     
 
 ---
 ## 2.案例  
