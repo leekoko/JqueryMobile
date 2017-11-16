@@ -27,10 +27,17 @@
 
    ``<th data-options="field:'budgetAccount',width:100,align:'center',editor:{type:'validatebox',options:{required:true}}">预算科目</th> ``   
 
-   - **type** : combobox为下拉框   
-   - **添加字典** ：``valueField:'dictKey',textField:'dictValue',url:'${ctx}/entpPerson/getEntpList'``    
+   - **type** : 
 
-#### 2.内容初始化
+     - 下拉框   -   combobox  
+
+       **添加字典** ：``valueField:'dictKey',textField:'dictValue',url:'${ctx}/entpPerson/getEntpList'``    
+
+     - 日期   -    datebox
+
+     ​
+
+     2.内容初始化
 
 ```javascript
         var setting = {"dataGridId":"resume","dataUrl":"${ctx}/entpResume/getResumeList?code=${code}","delAction":"${ctx}/entpResume/deleteEntpResume","saveAction":"${ctx}/entpResume/saveRes?code=${code}","toolbars":["add","remove","edit","save","undo"]};
