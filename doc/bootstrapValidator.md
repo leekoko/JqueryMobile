@@ -93,7 +93,7 @@
       ```javascript
                              emailAddress: {
                                   message: '邮箱地址格式有误'
-                              }
+                             }
       ```
 
       其他：
@@ -110,25 +110,46 @@
       (more: http://bv.doc.javake.cn/validators/)
       ```
 
-      ​
 
 [查看源码](../SourceCode/bootstrap/validator.html)   
 
+---
 
+## 3.格式校验   
 
+###  1.数字校验    
 
+#### 1.定义一个静态页面   
 
+```html
+<script>
+	function testNum(obj){
+		var value = $(obj).val();
+		if(value.substr(value.length-1) == "."){
+			
+		}else{
+			var temp = parseFloat(value);
+			if(isNaN(temp)){
+				$(obj).val(0);
+			}else{
+				$(obj).val(temp);
+			}
+		}
+	}
+</script>
+```
 
+#### 2.引用页面，使用属性   
 
+```html
+	<%@ include file="/static/math.jsp" %>
+```
 
+```html
+<input id="perSha" name="perSha" class="form-control" type="text" value="${gxFinanceProfitRevenue.perSha}" onkeyup="testNum(this)">
+```
 
-
-
-
-
-
-
-
+onkeyup:当用户释放键盘按钮时执行Javascript代码   
 
 
 
