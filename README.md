@@ -11,7 +11,9 @@
 
 ### [5.easyUI-DataGrid](doc/easyUI_dataGrid.md)   
 
-### [6.bootstrap表单校验](doc/bootstrapValidator.md)     
+### [6.bootstrap表单校验](doc/bootstrapValidator.md)        
+
+### [7.bootstrap实现多级菜单](doc/mulMenu.md)  
 
 ---
 ## 2.案例  
