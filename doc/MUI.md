@@ -43,6 +43,12 @@ Z：这是基本的mui结构，由头部和内容部分构成
 </html>
 ```
 
+M：MUI组件的位置大概是怎么放置呢？
+
+Z：最外层``<body>``标签，里面包含不同的mui组件，一般第一个为header
+
+![](../image/m01.png) 
+
 #### 折叠面板
 
 M：怎么实现折叠面板呢？
@@ -381,8 +387,6 @@ Z：使用form - div:row - label,input 组合
 http://www.hcoder.net/tutorials/info_95.html
 
 https://ke.qq.com/course/203400
-
-http://edu.51cto.com/course/8001.html?source=so
 
 http://edu.51cto.com/course/11637.html?source=so
 
