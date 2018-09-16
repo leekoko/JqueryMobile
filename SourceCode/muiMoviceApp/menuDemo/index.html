@@ -14,15 +14,23 @@
 	
 	<div class="mui-content">
 		<button type="button" onclick="tel();">打电话</button>
+
+	</div>
+	<div class="mui-content">
+		<ul class="mui-table-view" id="list1">
+			<li class="mui-table-view-cell" id="btn1">小明</li>
+			<li class="mui-table-view-cell">小花</li>
+			<li class="mui-table-view-cell">小白</li>
+		</ul>
 	</div>
 	
 	<nav class="mui-bar mui-bar-tab">
-	    <a class="mui-tab-item mui-active" id="tab2">
+	    <a class="mui-tab-item mui-active" >
 	        <span class="mui-icon mui-icon-home"></span>
 	        <span class="mui-tab-label">首页</span>
 	    </a>
 	    <a class="mui-tab-item">
-	        <span class="mui-icon mui-icon-phone"></span>
+	        <span class="mui-icon mui-icon-phone" id="tab2"></span>
 	        <span class="mui-tab-label">电话</span>
 	    </a>
 	    <a class="mui-tab-item">
@@ -36,22 +44,31 @@
 	</nav>
 	
 	<script type="text/javascript">
-		mui.plusReady(function(){
-			document.getElementById('tab2').addEventListener('tap',function(){
-				mui.openWindow({
-					url:'tel.html',
-					id:'tel.html'
-				});
-			});
+		/*预加载*/
+		mui.init({
+			preloadPages:[{
+				url : "tel.html",
+				id : "tel.html",
+				extras : {name:'小明', age:18}
+			}]
 		});
-//		直接跳转页面
+		
+		//监听跳转页面，底部导航需用
+		mui.plusReady(function(){
+			mui('#list1').on('tap','li',function(){
+				mui.toast('ok');
+			});
+			var btn1 = document.getElementById('btn1');
+			mui.trigger(btn1,'tap');
+		});
+		
+		//onclick跳转页面
 		function tel(){
 			mui.openWindow({
 				url:'tel.html',
 				id:'tel.html',
 				extras:{name:'小明',age:18}  //传递参数
 			});
-			
 		}
 	
 	</script>

@@ -378,15 +378,79 @@ Z：使用form - div:row - label,input 组合
 
 ![](../image/n09.png)  
 
+#### 页面   
+
+M：使用底部选项卡的时候要怎么打开页面呢？
+
+Z：可以用mui提供的监听方式
+
+```javascript
+		//监听跳转页面，底部导航需用
+		mui.plusReady(function(){
+			document.getElementById('tab2').addEventListener('tap',function(){
+				mui.openWindow({
+					url:'tel.html',
+					id:'tel.html',
+                    waiting:{
+						autoShow:true,
+						title:'正在加载...'
+					}
+				});
+			});
+		});
+```
+
+Z：也可以使用自定义的onclick事件
+
+```javascript
+		//onclick跳转页面
+		function tel(){
+			mui.openWindow({
+				url:'tel.html',
+				id:'tel.html',
+				extras:{name:'小明',age:18}  //传递参数
+			});			
+		}
+```
+
+M：传递参数在新的页面要怎么获取呢？
+
+Z：使用mui提供的方法，还可以将参数插入到标签中
+
+```html
+		姓名：<span id="name"></span>
+		年龄：<span id="age"></span>
+```
+```javascript
+			mui.plusReady(function(){
+				var sData = plus.webview.currentWebview();
+				var name = mui("#name");
+				name[0].innerHTML = sData.name;
+				var age = mui("#age");
+				age[0].innerHTML = sData.age;
+				
+			});
+```
+
+M：为什么我的底部选项卡无法跳页面，还有传参也不显示呢？
+
+Z：这是浏览器的原因，打包成app之后就起效了，所以才要求使用真机调试。
+
+M：如果我想让页面跳转更流畅些，有什么解决方法吗？
+
+Z：可以使用预加载，在进入页面时就把要展示的内容加载好
+
+```javascript
+		mui.init({
+			preloadPages:[{
+				url : "tel.html",
+				id : "tel.html",
+				extras : {name:'小明', age:18}
+			}]
+		});
+```
 
 
-
-
-
-
-怎么打开子窗口，并且可以返回
-
-视频0105   为什么传值会失败
 
 
 
