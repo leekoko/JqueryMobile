@@ -1,7 +1,5 @@
 # K-Cat学院前台页面练习项目  
 
----
-
 ## 1.环境配置
 1. 设置中文语言：``<html lang="zh-CN">``  
 2. IE8开启渲染模式：``<meta http-equiv="x-ua-compatible" content="IE=Edge">``  
@@ -9,8 +7,6 @@
    initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例  
 4. 引入jq文件，bootstrap css文件，js文件（使用加速器的方式引入）  
    （百度静态网站加载库：http://cdn.code.baidu.com/）  
-
----
 
 ## 2.导航
 ### 1.结构
@@ -224,8 +220,6 @@
 效果图：  
 ![](../image/bs3.png)  
 
----
-
 ## 5.第三屏  
 ### 1.结构  
 1. 不同类型的文字用不同个p来做  
@@ -285,8 +279,6 @@
 效果图：  
 ![](../image/bs4.png)  
 
----
-
 ## 6.第四屏  
 ### 1.结构  
 因为跟前面相似，复制前面标签，对id和内容进行更换  
@@ -330,8 +322,6 @@
 
 效果图：  
 ![](../image/bs5.png)  
-
----
 
 ## 7.第五屏  
 ### 1.结构  
@@ -427,8 +417,6 @@ K-Cat学院是广州科猫信息技术有限公司旗下一个IT在线教育平�
 效果图：  
 ![](../image/bs6.png)  
 
----
-
 ## 8.脚部  
 ### 1.结构   
 脚部使用footer标签，里面的栅格化使用12  
@@ -457,8 +445,6 @@ footer{
 	padding: 20px;
 }
 ```
-
----
 
 ## 9.效果插件  
 1. 单一面导航插件jquery.singlePageNav.min.js&wow.min.js,还有一个css插件animate.css  
