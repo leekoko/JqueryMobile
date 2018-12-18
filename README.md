@@ -1,4 +1,3 @@
-# 前端  
 ## 1.知识点  
 
 ### [1.JqueryMobile基础知识](doc/jqueryBasics.md)  
@@ -21,7 +20,8 @@
 
 ### [11.MUI电影App](doc/muiMovice.md)  
 
----
+### [12.node.js](doc/nodeJs.md)  
+
 ## 2.案例  
 
 ### [1.微信活动界面-西瓜节](doc/WeChat_Watermelon.md)(bootstrap)  

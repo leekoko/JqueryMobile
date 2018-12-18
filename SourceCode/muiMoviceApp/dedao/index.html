@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src="https://code.jquery.com/jquery.js"></script>
+	<!--标准mui.css-->
+	<link rel="stylesheet" href="css/mui.min.css">
+    <title>注册页面</title>
+
+</head>
+<body>
+		
+	<div class="mui-content" style="margin-top: 250px;">
+		<span id="word" style="display:none;">从前有座山</span>
+	    <span id="show" style="font-size: 30px;"></span>
+    	<input type="text" style="display:none;" id="inputA" style="width: 50%;">
+	</div>
+	
+	
+   <script>
+   		/*字体输入框显示*/
+        window.onload=function(){
+            var story = document.getElementById('word');
+            var s = document.getElementById('show');
+            var i = 0;
+            timer=setInterval(function(){
+                s.innerHTML=story.innerHTML.substring(0,i);
+                i++;
+                if(s.innerHTML==story.innerHTML){
+                    clearInterval(timer);
+                    showInput();
+                }
+            },200);
+        }
+    
+    function showInput(){
+    	$("#inputA").fadeIn(3000);
+    }
+    </script>
+</body>
+</html>
