@@ -1,4 +1,22 @@
-# 下面node.js
+# node.js
+
+#### 启动node.js
+
+Z：进入node项目目录下，执行``npm install``,然后执行``npm run serve``运行程序，通过``ip:8020/home``进行访问开发区前端项目。
+
+M：那要怎么启动node.js的项目呢？
+
+Z：进入项目位置，执行``npm install``安装依赖，然后执行``npm run serve``运行项目   
+
+M：没法执行``npm install``怎么办？
+
+Z：可能是没有package.json的缘故，执行``npm init``即可生成
+
+M：安装依赖太慢怎么办？
+
+Z：可以设置使用淘宝的镜像``npm config set registry https://registry.npm.taobao.org``  
+
+#### node.js基础操作
 
 M：怎么用node.js执行js文件？
 
@@ -38,8 +56,6 @@ Z：使用命令``npm install npm -g``
 M：要怎么利用NPM安装框架模块呢？
 
 Z：``npm install express``,express 包会下载到node_modules 目录中  ，通过``var express = require('express');``即可进行引用。
-
-
 
 M：全局安装和本地安装是用来干嘛的呢？
 
