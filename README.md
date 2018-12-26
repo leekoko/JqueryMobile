@@ -20,7 +20,9 @@
 
 ### [11.MUI电影App](doc/muiMovice.md)  
 
-### [12.node.js](doc/nodeJs.md)  
+### [12.node.js](doc/nodeJs.md)   
+
+### [13.vue.js基础](doc/vue/vueBaes.md)
 
 ## 2.案例  
 
