@@ -1,7 +1,5 @@
 ## CSS3基础
 
----
-
 工具准备【[CSS3_tools文件夹中](../CSS3_tools)】：  
 1. Sublime编辑器  
 2. 中文插件：Chinese-Localization-master.zip  
