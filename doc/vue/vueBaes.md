@@ -152,7 +152,50 @@ var app3 = new Vue({
 
 v-if判断变量seen的属性值，如果值为false，数据将消失，否则正常显示。
 
+M：那除了if，有没有else呢？
+
+Z：如下代码
+
+```javascript
+	<div v-if="Math.random() > 0.5">
+	  Now you see me
+	</div>
+	<div v-else-if="Math.random() < 0.3">
+	  Now you see another me
+	</div>
+	<div v-else>
+	  Now you don't
+	</div>
+```
+
 M：这里的属性切换是导致元素直接remove/add，并非简单的隐藏。
+
+#### v-show
+
+M：因为有些元素需要频繁显示隐藏，我想在css层面隐藏它，在vue中怎么实现？
+
+Z：如下代码
+
+```html
+<div id="demo">
+	<div v-show="ok">
+	  Now you see me
+	</div>
+	<div v-show="no">
+	  Now you see another me
+	</div>
+</div>
+```
+
+```javascript
+var vm = new Vue({
+	el: '#demo',
+	data: {
+	  ok: true,
+	  no: false
+	}
+})
+```
 
 #### v-for
 
@@ -187,7 +230,68 @@ var app4 = new Vue({
 
 M：如果要往数组中新增内容，怎么实现呢？
 
-Z：使用``app3.todos.push({ text: '新项目' })``即可往数组中追加内容
+Z：使用``app3.todos.push({ text: '新项目' })``即可往数组中追加内容   
+
+M：v-if和v-for组合怎么使用？
+
+Z：如果是for中隐藏不显示的列，可以用for循环**计算属性**返回的值，如下代码
+
+```javascript
+computed: {
+  activeUsers: function () {
+    return this.users.filter(function (user) {   //filter方法
+      return user.isActive
+    })
+  }
+}
+```
+
+_尽量避免将for和if写在同一个元素上面``<div v-for="grocery in groceryList" v-if="grocery.isShow">，这样可以使for操作和if操作解耦``_    
+
+如果是通过if判断，是否显示整块列，如下代码：
+
+```html
+	<div v-if="flag">
+		<div v-for="grocery in groceryList" >
+		  <a>{{grocery.text}}</a>
+		</div>
+	</div>
+```
+
+M：如果我有一个对象，但是不知道它的key是什么，要用什么方式把它遍历出来呢？
+
+Z：可以用v-for循环key，value进行显示
+
+```html
+<ul id="v-for-object" class="demo">
+	<div v-for="(value, key) in object">
+	  {{ key }}: {{ value }}
+	</div>
+</ul>
+```
+
+```javascript
+new Vue({
+  el: '#v-for-object',
+  data: {
+    object: {
+      firstName: 'John',
+      lastName: 'Doe',
+      age: 30
+    }
+  }
+})
+```
+
+如果只要value，使用以下代码即可
+
+```HTML
+	<div v-for="value in object">
+	  {{ value }}
+	</div>
+```
+
+_在2.2.0+版本中，v-for时key是必须添加的。_
 
 #### v-on   
 
@@ -243,6 +347,27 @@ var app6 = new Vue({
 ```
 
 vue通过v-model方法双向绑定vue变量&输入框，vue变量值变化，显示内容则实时更新。
+
+#### key属性
+
+M：key属性有模式作用呢，为什么要添加key属性将标签区分开来？
+
+Z：代码如下：
+
+```html
+<template v-if="loginType === 'username'">
+  <label>Username</label>
+  <input placeholder="Enter your username" key="username-input">
+</template>
+<template v-else>
+  <label>Email</label>
+  <input placeholder="Enter your email address" key="email-input">
+</template>
+```
+
+在这段代码中，label只被渲染了一次，而用到了两个地方（第二次只是渲染了文本内容）。
+
+而添加了key的input将会被重新渲染，如果不重新渲染，输入在Username中的内容将会保存到Email文本框中。
 
 ### 2.钩子
 
@@ -456,11 +581,132 @@ var watchExampleVM = new Vue({
 
 这里用到了debounce进行频率的控制，每500ms才会尝试一次访问。访问通过``axios.get('https://yesno.wtf/api')``获取到response后对其内容进行解析显示。
 
+### 4.绑定HTML Class
 
+#### Class绑定
 
+M：如果我想让元素动态地变化属性，一般情况下就是监测改变标签的css样式。在vue中该怎么实现呢？
 
+Z：可以用v-bind绑定class属性，用class绑定css样式；代码如下：
 
+```html
+<div v-bind:class="{ active: isActive }"></div>
+```
 
+其中isActive是一个布尔值，当isActive值为true时，``class=active``才会被渲染出来。
+
+M：如果我要定义多个类，该怎么实现呢？
+
+Z：通过对的方式传输
+
+```html
+<div v-bind:class="classObject"></div>
+```
+
+```javascript
+data: {
+  classObject: {
+    active: true,
+    'text-danger': false
+  }
+}
+```
+
+M：如果我现在添加那个类，需要一定的逻辑判断，又要怎么做呢？
+
+Z：将普通属性转变为计算属性
+
+```html
+<div id="demo">
+	<div v-bind:class="classObject"></div>
+</div>
+```
+
+```javascript
+var vm = new Vue({
+	el: '#demo',
+	data: {
+	  isActive: true,
+	  error: null
+	},
+	computed: {
+	  classObject: function () {
+		var flagA = this.isActive && !this.error;
+		var flagB = false;
+		flagB = flagA;
+		return {active:flagA ,'text-danger': flagB}
+	  }
+	}
+})
+```
+
+#### CSS内联绑定  
+
+M：如果我想把CSS写成内联样式，在vue中该怎么实现呢？
+
+Z：用``v-bind:style``绑定键值对就可以了，代码如下：
+
+```html
+<div id="demo">
+	<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">内容</div>
+</div>
+```
+
+```javascript
+var vm = new Vue({
+	el: '#demo',
+	data: {
+	  activeColor: 'red',
+	  fontSize: 30
+	}
+})
+```
+
+### 5.元素
+
+#### 数组
+
+M：我现在存在一个数组，直接用``arr[0]='new content'``虽然替换成功，当显示的内容并不会响应式更新，怎么解决呢？
+
+Z：使用以下代码即可进行响应式替换：
+
+```javascript
+Vue.set(vm.items, 1, "d");
+```
+
+#### 对象
+
+M：如果要更新属性的是一个对象，用以下代码虽然成功更新，也不能响应式更新，该怎么做：
+
+```javascript
+Object.assign(vm.userProfile, {
+  age: 27,
+  favoriteColor: 'Vue Green'
+})
+```
+
+Z：换一种方式：
+
+```javascript
+var vm = new Vue({
+  el: '#v-for-object',
+  data: {
+	man:{
+		name:'liuXin',
+		age : 13
+	}
+  },
+  methods:{
+	test:function(){
+		vm.man = Object.assign({}, vm.man, {
+		  height: 180,
+		  favoriteColor: 'Vue Green'
+		})
+		console.log(this.man);
+	}
+  }
+})
+```
 
 ## vue自带实例
 
@@ -484,7 +730,26 @@ vm.$watch('mess', function (newValue, oldValue) {
 })
 ```
 
+#### filter方法
 
+M：当有一些数据不想显示出来，一般这种过滤操作都是在后端处理完传到前台的。vue要用什么方式过滤掉呢？
+
+Z：如下代码：
+
+```javascript
+  data: {
+	numbers: [ 1, 2, 3, 4, 5 ]
+  },
+  computed: {
+	  evenNumbers: function () {
+		return this.numbers.filter(function (number) {
+		  return number % 2 === 0
+		})
+	  }
+  },
+```
+
+实现filter方法，将要显示的数据return到前端。
 
 ## 组件
 
@@ -564,13 +829,54 @@ Z：使用v-once属性即可``  template: '<li v-once>{{ todo }}</li>'``
 
 Z：任何类型的应用界面都可以抽象为组件树，在大的组件中套用小的组件。整个前端项目 = 组件不断嵌套堆叠
 
+## 规范
+
+### 1.css作用域
+
+Z：为了不让自己写的代码不被第三方或者其他人的HTML/CSS影响，有以下两种方式可以设置样式作用域：
+
+- 使用class策略：添加个前缀``c-``区分，例如以下代码：
+
+  ```vue
+  <template>
+    <button class="c-Button c-Button--close">X</button>
+  </template>
+  
+  <!-- 使用 BEM 约定 -->
+  <style>
+  .c-Button {
+    border: none;
+    border-radius: 2px;
+  }
+  
+  .c-Button--close {
+    background-color: red;
+  }
+  </style>
+  ```
+
+- 使用`scoped` 特性
+
+  如``<style scoped>``或``<style module>``
+
+### 2.私有属性名
+
+Z：直接定义属性可能与其他人属性冲突，可以使用``$_spaceName_propertyName``以区分：
+
+```javascript
+var myGreatMixin = {
+  // ...
+  methods: {
+    $_myGreatMixin_update: function () {
+      // ...
+    }
+  }
+}
+```
 
 
 
+规范内容后期补充
 
-
-
-https://cn.vuejs.org/v2/guide/class-and-style.html
-
-
+https://cn.vuejs.org/v2/style-guide/#%E4%BC%98%E5%85%88%E7%BA%A7-B-%E7%9A%84%E8%A7%84%E5%88%99%EF%BC%9A%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90-%E5%A2%9E%E5%BC%BA%E5%8F%AF%E8%AF%BB%E6%80%A7
 
