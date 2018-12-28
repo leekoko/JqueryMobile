@@ -4,7 +4,7 @@
 
 ## 为什么要使用Vue.js
 
-Z：vue.js的有点如下：
+Z：vue.js的优点如下：
 
 - vue.js将前端的设计，从关注DOM转移到关注数据上
 
@@ -100,7 +100,7 @@ M：bootstrap的引入也是在该页面
 
 #### v-bind
 
-Z：指令带有``v-``,例如以下实例
+Z：指令带有``v-``,例如强制绑定v-bind：
 
 ```html
 <div id="app-2">
@@ -119,15 +119,15 @@ var app2 = new Vue({
 })
 ```
 
-v-bind:捆绑指令，渲染DOM时，将title特性和vue实例中的message属性保持一致
+v-bind:捆绑指令，title指向data中的message变量``v-bind:title="message"``
 
 M：那如果我要修改属性值呢?
 
 Z：只要执行``app2.message = '新消息';``js语句，message属性将会被修改。   
 
-M：``v-bind:title="message"``最后会被渲染为``title="message的变量内容"``，这里title的属性变化相当于attr的作用。
+M：``v-bind:title="变量名"``最后会被渲染为``title="message的变量内容"``，这里title的属性变化相当于attr的作用。
 
-_<a v-bind:href="url">可以缩写为<a :href="url">_  
+_<a v-bind:href="url">可以缩写为<a :href="url">，还可以绑定src等属性_  
 
 #### v-if
 
@@ -297,7 +297,7 @@ _在2.2.0+版本中，v-for时key是必须添加的。_
 
 M：如果我们要做按钮，一般就是添加onclik属性，然后在js中添加该方式，在vue中怎么实现呢？
 
-Z：如下代码：
+Z：如下代码，绑定事件监听：
 
 ```html
 <div id="app-5">
@@ -322,7 +322,7 @@ var app5 = new Vue({
 
 用v-on监听click事件，指定方法名。将方法添加到vue实例的methods属性中
 
-_<a v-bind:href="url">可以缩写为<a :href="url">_  
+_<a v-on:click="test">可以缩写为<a @click="test">_  
 
 #### v-model
 
@@ -347,6 +347,82 @@ var app6 = new Vue({
 ```
 
 vue通过v-model方法双向绑定vue变量&输入框，vue变量值变化，显示内容则实时更新。
+
+M：能不能对checkbox的状态实时显示呢？
+
+Z：如下代码：
+
+```html
+<input type="checkbox" id="checkbox" v-model="checked">
+<label for="checkbox">{{ checked }}</label>
+```
+
+直接遍历checkbox就可以获取到checkbox的状态了   
+
+M：那同样是复选框，我要获取多选的值需要怎么做？
+
+Z：代码如下：
+
+```html
+<div id='example-3'>
+  <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+  <label for="jack">Jack</label>
+  <input type="checkbox" id="john" value="John" v-model="checkedNames">
+  <label for="john">John</label>
+  <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+  <label for="mike">Mike</label>
+  <br>
+  <span>Checked names: {{ checkedNames }}</span>
+</div>
+```
+
+```javascript
+new Vue({
+  el: '#example-3',
+  data: {
+    checkedNames: []
+  }
+})
+```
+
+直接将多个checkbox的标签设置用一个``v-model``属性，在data中对应的checkedNames数组就会获取到选中的value值。
+
+_单选radio的使用方式相似_
+
+M：那下拉框怎么实时获取？
+
+Z：将``v-model``添加在select上
+
+```html
+<div id="example-5">
+  <select v-model="selected">
+    <option disabled value="">请选择</option>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+  <span>Selected: {{ selected }}</span>
+</div>
+```
+
+```javascript
+new Vue({
+  el: '...',
+  data: {
+    selected: ''
+  }
+})
+```
+
+#### v-html
+
+M：当我们使用``<p>{{msg}}</p>``的时候，msg文本会直接显示在p标签里；而如果msg是一段HTML代码，我们希望它以html形式直接插入到p标签中怎么实现呢？
+
+Z：需要用到v-html属性，代码如下：
+
+```html
+<p v-html="msg"></p>
+```
 
 #### key属性
 
@@ -749,7 +825,61 @@ Z：如下代码：
   },
 ```
 
-实现filter方法，将要显示的数据return到前端。
+实现filter方法，将要显示的数据return到前端。   
+
+#### 原生DOM
+
+M：如果要使用原生DOM，怎么做？
+
+Z：代码如下：
+
+```html
+<button v-on:click="warn('Form cannot be submitted yet.', $event)">
+    Submit
+</button>
+```
+
+```javascript
+methods: {
+    warn: function (message, event) {
+        // 现在我们可以访问原生事件对象
+        if (event) event.preventDefault()
+        alert(message)
+    }
+}
+```
+
+使用$event可以将event作为参数传到方法中，通过解析event可以对DOM元素进行操作。
+
+#### 事件修饰符
+
+Z：方法中只处理数据，而DOM事件vue自带了事件修饰符；用到时进行查询：
+
+```html
+<!-- 阻止单击事件继续传播 -->
+<a v-on:click.stop="doThis"></a>
+
+<!-- 提交事件不再重载页面 -->
+<form v-on:submit.prevent="onSubmit"></form>
+
+<!-- 修饰符可以串联 -->
+<a v-on:click.stop.prevent="doThat"></a>
+
+<!-- 只有修饰符 -->
+<form v-on:submit.prevent></form>
+
+<!-- 添加事件监听器时使用事件捕获模式 -->
+<!-- 即元素自身触发的事件先在此处理，然后才交由内部元素进行处理 -->
+<div v-on:click.capture="doThis">...</div>
+
+<!-- 只当在 event.target 是当前元素自身时触发处理函数 -->
+<!-- 即事件不是从内部元素触发的 -->
+<div v-on:click.self="doThat">...</div>
+```
+
+
+
+
 
 ## 组件
 
@@ -823,6 +953,22 @@ var app7 = new Vue({
 
 给模板标签绑定一个属性``v-bind:todo="item"``，而模板声明接收该todo属性，并取出属性中的值，写入模板中。
 
+M：模板的定义如果是多个标签组合，该怎么实现呢？
+
+Z：用``\``做行连接符，如下代码：
+
+```javascript
+Vue.component('todo-item', {
+  template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">Remove</button>\
+    </li>\
+  ',
+  props: ['title']
+})
+```
+
 M：简单说就是给模板不同的位置设置为变量，如果不想让变量发生再次改变，怎么做？
 
 Z：使用v-once属性即可``  template: '<li v-once>{{ todo }}</li>'``
@@ -873,6 +1019,14 @@ var myGreatMixin = {
   }
 }
 ```
+
+
+
+指南后面部分
+
+https://cn.vuejs.org/v2/guide/forms.html
+
+
 
 
 

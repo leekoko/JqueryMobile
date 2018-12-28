@@ -24,5 +24,6 @@
 
 ### Vue全家桶
 
-1. [node.js](doc/vue/nodeJs.md)   
-2. [vue.js基础](doc/vue/vueBaes.md)  
+1. [vue.js核心库](doc/vue/vueCore.md)  
+2. [node.js](doc/vue/nodeJs.md)   
+
