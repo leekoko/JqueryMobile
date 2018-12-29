@@ -414,6 +414,34 @@ new Vue({
 })
 ```
 
+M：下拉多选怎么实现？
+
+Z：代码如下，添加``multiple``即可：
+
+```vue
+<div id="example-5">
+  <select v-model="selected" multiple>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
+  <span>Selected: {{ selected }}</span>
+</div>
+
+<script>
+new Vue({
+  el: '#example-5',
+  data: {
+    selected: ''
+  }
+})
+</script>
+```
+
+M：有时候输入框的内容不想让别人输入特殊字符，需要怎么限定呢？
+
+Z：当使用了``<input v-model.number="age" type="number">``会对非浮点数之外的内容进行限制。
+
 #### v-html
 
 M：当我们使用``<p>{{msg}}</p>``的时候，msg文本会直接显示在p标签里；而如果msg是一段HTML代码，我们希望它以html形式直接插入到p标签中怎么实现呢？
@@ -444,6 +472,52 @@ Z：代码如下：
 在这段代码中，label只被渲染了一次，而用到了两个地方（第二次只是渲染了文本内容）。
 
 而添加了key的input将会被重新渲染，如果不重新渲染，输入在Username中的内容将会保存到Email文本框中。
+
+#### 自定义指令  
+
+M：如果我经常要转化大小写，希望自己封装指令，怎么实现呢？
+
+Z：指令分两种，局部指令 & 全局指令，都用``directive处理函数``定义指令：
+
+```javascript
+  //全局指令
+  Vue.directive('upper-text', function (el, binding) {
+    console.log(el, binding)
+    el.textContent = binding.value.toUpperCase()  //el是标签，binding包含标签信息
+  })
+  //局部指令
+    new Vue({
+        el: '#test',
+        data: {
+            msg: "I Like You"
+        },
+        // 注册局部指令
+        directives: {
+            'lower-text'(el, binding) {
+                console.log(el, binding)
+                el.textContent = binding.value.toLowerCase()
+            }
+        }
+  })
+```
+
+使用指令
+
+```html
+<div id="test">
+  <p v-upper-text="msg"></p>
+  <p v-lower-text="msg"></p>
+</div>
+
+<div id="test2">
+  <p v-upper-text="msg"></p>
+  <p v-lower-text="msg"></p>
+</div>
+```
+
+
+
+
 
 ### 2.钩子
 
@@ -742,13 +816,44 @@ var vm = new Vue({
 
 #### 数组
 
-M：我现在存在一个数组，直接用``arr[0]='new content'``虽然替换成功，当显示的内容并不会响应式更新，怎么解决呢？
+M：怎么获取数组脚标呢？
 
-Z：使用以下代码即可进行响应式替换：
+Z：使用v-for的方式``<li v-for="(p,index) in persons" :key="index">``
+
+M：如果我要删除指定数组元素，怎么实现呢？
+
+Z：传入数组脚标，然后使用函数``splice``
 
 ```javascript
-Vue.set(vm.items, 1, "d");
+deleteP(index){
+    //删除person中指定index的p
+    this.person.splice(index,1)  //删除1个
+}
 ```
+
+M：那我想更改指定列的内容，怎么实现呢？
+
+M：我现在存在一个数组，直接用``arr[0]='new content'``虽然替换成功，当显示的内容并不会响应式更新，怎么解决呢？
+
+Z：vue提供了观察数组的方法，使用以下代码即可进行响应式替换：
+
+```html
+<button @click="updateP(index,{name:'Cat',age:20})">
+    更新
+</button>
+```
+
+```javascript
+updateP(index,newP){
+    this.persons.splice(index,1，newP)  
+}
+```
+
+M：那我要添加一条数据怎没实现呢？
+
+Z：改数字1为0就可以了``this.persons.splice(index,0，newP)  ``
+
+
 
 #### 对象
 
@@ -812,6 +917,10 @@ M：当有一些数据不想显示出来，一般这种过滤操作都是在后�
 
 Z：如下代码：
 
+```html
+<p>{{evenNumbers}}</p>
+```
+
 ```javascript
   data: {
 	numbers: [ 1, 2, 3, 4, 5 ]
@@ -825,7 +934,89 @@ Z：如下代码：
   },
 ```
 
-实现filter方法，将要显示的数据return到前端。   
+实现filter方法，判读boolean结果来决定是否将数据return到前端。
+
+M：那我现在要实现实时过滤，应该怎么做呢？
+
+Z：如下代码
+
+```html
+<div id="demo">
+  <input type="text" v-model="searchName">
+  <ul>
+    <li v-for="(p,index) in filterPersons" :key="index">
+      {{index}}--{{p.name}}--{{p.age}}
+    </li>
+  </ul>
+</div>
+```
+
+```javascript
+  new Vue({
+    el: '#demo',
+    data: {
+      searchName: '',
+      persons: [
+        {name: 'Tom', age:18},
+        {name: 'Jack', age:17},
+        {name: 'Bob', age:19},
+        {name: 'Mary', age:16}
+      ]
+    },
+
+    computed: {
+      filterPersons () {
+        // 取出相关数据
+        const {searchName, persons} = this
+		//最终要显示的数组
+		let fPersons;
+        // 过滤数组        
+		fPersons = persons.filter(p => p.name.indexOf(searchName)!==-1)  
+        return fPersons
+      }
+    }
+  })
+```
+
+使用``const {searchName, persons} = this``后，就不用写``this.searchName``了，直接调用即可。
+
+filter将要显示的数据过滤后返回``fPersons = persons.filter(p => p.name.indexOf(searchName)!==-1)``p
+
+默认为persons的一个元素person
+
+M：如果我要实现排序，怎么做呢？
+
+Z：用这个方法定义排序规则就可以了：
+
+```javascript
+fPersons.sort(function (p1, p2) {
+    if(orderType===1) { // 降序
+        return p2.age-p1.age
+    } else { // 升序
+        return p1.age-p2.age
+    }
+})
+```
+
+M：我要格式化日期，如果每一个都用怎么使用Filter格式化日期呢？
+
+Z：代码如下：
+
+```html
+<div id="test">
+  <p>最完整的: {{time | dateString}}</p>
+  <p>年月日: {{time | dateString('YYYY-MM-DD')}}</p>
+</div>
+```
+
+```javascript
+  // 定义过滤器
+  Vue.filter('dateString', function (value, format='YYYY-MM-DD HH:mm:ss') { //形参默认值
+    return moment(value).format(format);
+  })
+```
+
+把值和格式传到过滤器中，使用moment插件进行转换。
 
 #### 原生DOM
 
@@ -849,7 +1040,7 @@ methods: {
 }
 ```
 
-使用$event可以将event作为参数传到方法中，通过解析event可以对DOM元素进行操作。
+使用$event可以将event作为参数传到方法中，通过解析event可以对DOM元素进行操作(例如获取value内容)。
 
 #### 事件修饰符
 
@@ -863,7 +1054,7 @@ Z：方法中只处理数据，而DOM事件vue自带了事件修饰符；用到�
 <form v-on:submit.prevent="onSubmit"></form>
 
 <!-- 修饰符可以串联 -->
-<a v-on:click.stop.prevent="doThat"></a>
+<a v-on:click.stop.prevent="doThat"></a>   //stop停止默认行为，prevent阻止事件冒泡
 
 <!-- 只有修饰符 -->
 <form v-on:submit.prevent></form>
@@ -877,9 +1068,25 @@ Z：方法中只处理数据，而DOM事件vue自带了事件修饰符；用到�
 <div v-on:click.self="doThat">...</div>
 ```
 
+#### ES
 
+M：let，const，var三者之间有什么区别呢？
 
+Z：功能上的不同，var是全局的，let是当前代码块有效，而const定义的是常量。  
 
+#### 箭头函数=>
+
+M：箭头函数=>该怎么理解呢？
+
+Z：如``var func = param => param.split(" ");``转化为一般函数就是：
+
+```javascript
+var func = function (param) {
+    return param.split(" ");
+}
+```
+
+它把return和方法名给省略掉了。
 
 ## 组件
 
@@ -909,7 +1116,19 @@ var app7 = new Vue({
 })
 ```
 
-相当于定义一个自定义标签，然后调用该标签就可以了。渲染之后就变为模板的内容。
+相当于定义一个自定义标签，然后调用该标签就可以了。渲染之后就变为模板的内容。组件中如果有data数据，必须为函数：
+
+```javascript
+// 定义一个名为 button-counter 的新组件
+Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+})
+```
 
 M：这是当每个模板都一模一样的时候可以使用，但是如果内容有一点不同呢？
 
@@ -951,7 +1170,7 @@ var app7 = new Vue({
 })
 ```
 
-给模板标签绑定一个属性``v-bind:todo="item"``，而模板声明接收该todo属性，并取出属性中的值，写入模板中。
+给模板标签绑定一个属性``v-bind:todo="item"``，而模板声明接收该todo属性，并取出属性中的值(也可以直接传值)，写入模板中。
 
 M：模板的定义如果是多个标签组合，该怎么实现呢？
 
@@ -974,6 +1193,14 @@ M：简单说就是给模板不同的位置设置为变量，如果不想让变�
 Z：使用v-once属性即可``  template: '<li v-once>{{ todo }}</li>'``
 
 Z：任何类型的应用界面都可以抽象为组件树，在大的组件中套用小的组件。整个前端项目 = 组件不断嵌套堆叠
+
+#### 单个根元素
+
+Z：**every component must have a single root element**，如果有多个元素要写，需要将它包含在一个父元素中。
+
+
+
+
 
 ## 规范
 
@@ -1024,7 +1251,7 @@ var myGreatMixin = {
 
 指南后面部分
 
-https://cn.vuejs.org/v2/guide/forms.html
+https://cn.vuejs.org/v2/guide/components.html
 
 
 
@@ -1034,3 +1261,6 @@ https://cn.vuejs.org/v2/guide/forms.html
 
 https://cn.vuejs.org/v2/style-guide/#%E4%BC%98%E5%85%88%E7%BA%A7-B-%E7%9A%84%E8%A7%84%E5%88%99%EF%BC%9A%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90-%E5%A2%9E%E5%BC%BA%E5%8F%AF%E8%AF%BB%E6%80%A7
 
+
+
+视频17
