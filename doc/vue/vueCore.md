@@ -22,7 +22,7 @@ Z：vue.js的优点如下：
 
 M：vue怎么创建应用呢？
 
-Z：使用``vue init webpack vue-one  ``即可
+Z：使用``vue init webpack vue-one  ``即可，webpack是模板名称，vue-one是项目名
 
 启动方式：
 
