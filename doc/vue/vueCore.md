@@ -1123,9 +1123,62 @@ Z：**every component must have a single root element**，如果有多个元素�
 
 #### 组件中的数据传递  
 
-loading
+M：什么时候要设置全局变量，什么时候设置局部的呢？
 
+Z：根据数据的作用域来设定，全局设置方式：
 
+1. App.vue
+
+   ```javascript
+   export default{
+       data(){
+           comments:[
+               {
+                   name:'BOB',
+                   content:'Vue不错'
+               }
+           ]
+       }
+       
+   }
+   ```
+
+   ```html
+   <List :comments="comments"/>
+   ```
+
+   将变量的值传到组件中
+
+2. List.vue
+
+   ```javascript
+   export default{
+       //声明接收属性
+       props: ['comments']
+   }
+   ```
+
+   ```html
+   <ul class="list-group">
+       <Item v-for="(comment,index)" in comments :key="index" :comment="comment"/>
+   </ul>
+   ```
+
+3. Item.vue
+
+   ```javascript
+   export default{
+       //声明接收属性
+       comment: Object
+   }
+   ```
+
+   ```html
+   {{comment.name}}
+   {{comment.content}}
+   ```
+
+   最后一层接收
 
 ## 规范
 
@@ -1172,6 +1225,58 @@ var myGreatMixin = {
 }
 ```
 
+### 3.提取公用方法  
+
+M：怎么将共用方法提取出来呢？
+
+Z：新建共用的js，代码如下：
+
+```javascript
+export default {
+    /**
+     * 手机号码规则
+     * @param rule
+     * @param value
+     * @param callback
+     * @returns {*}
+     */
+    validateTelPhone: function(rule, value, callback){
+        if (value.length > 0 && value.length != 11) {
+            return callback(new Error("不是有效的手机号码！"));
+        }
+        callback();
+    }
+}
+```
+
+Z：然后引入该js文件，声明变量，即可调用``common.validateTelPhone``
+
+```javascript
+import common from "../../../../utils/common.js";
+import Vue from "vue";
+Vue.prototype.common = common;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 指南后面部分
@@ -1184,7 +1289,7 @@ https://cn.vuejs.org/v2/style-guide/#%E4%BC%98%E5%85%88%E7%BA%A7-B-%E7%9A%84%E8%
 
 
 
-视频20，启动vue项目失败
+视频23
 
 
 
