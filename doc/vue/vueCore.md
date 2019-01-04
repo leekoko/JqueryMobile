@@ -772,7 +772,7 @@ updateP(index,newP){
 }
 ```
 
-M：那我要添加一条数据怎没实现呢？
+M：那我要添加一条数据怎么实现呢？
 
 Z：改数字1为0就可以了``this.persons.splice(index,0，newP)  ``
 
@@ -1010,6 +1010,16 @@ var func = function (param) {
 ```
 
 它把return和方法名给省略掉了。
+
+#### 三元运算符
+
+M：如果想在标签上的属性做判断，该怎么实现呢？
+
+Z：可以使用三元运算符
+
+```javascript
+<FormItem :label="subject.titbf.isqa === true ? '必填' : ''" :prop="subject.titbf.isqa === true ? 'radioProp' : ''" >
+```
 
 ## 组件
 
@@ -1289,7 +1299,7 @@ https://cn.vuejs.org/v2/style-guide/#%E4%BC%98%E5%85%88%E7%BA%A7-B-%E7%9A%84%E8%
 
 
 
-视频23
+视频24
 
 
 
