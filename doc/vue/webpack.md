@@ -126,7 +126,7 @@ Z：如下
 
 3. 拆分样式：将对应的样式添加到其vue中
 
-
+https://www.imooc.com/video/16402
 
 
 
