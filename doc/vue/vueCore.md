@@ -363,7 +363,11 @@ new Vue({
 
 M：有时候输入框的内容不想让别人输入特殊字符，需要怎么限定呢？
 
-Z：当使用了``<input v-model.number="age" type="number">``会对非浮点数之外的内容进行限制。
+Z：当使用了``<input v-model.number="age" type="number">``会对非浮点数之外的内容进行限制。   
+
+M：如果该模块是动态生成的，v-model重复怎么办？
+
+Z：在同一个模块下，v-model有自己的作用域，不会跟其他的v-model产生干扰
 
 #### v-html
 
@@ -1174,6 +1178,8 @@ Z：根据数据的作用域来设定，全局设置方式：
    </ul>
    ```
 
+   comment接收后相当于定义了一个comment
+
 3. Item.vue
 
    ```javascript
@@ -1191,6 +1197,8 @@ Z：根据数据的作用域来设定，全局设置方式：
    最后一层接收
 
 ## 规范
+
+Z：对于代码的规范，可以使用命令``npm run lint``进行检测
 
 ### 1.css作用域
 
@@ -1267,9 +1275,37 @@ import Vue from "vue";
 Vue.prototype.common = common;
 ```
 
+## 跳转   
 
+### 1.新窗口跳转   
 
+M：怎么新弹窗进行跳转呢？
 
+Z：使用命令
+
+```javascript
+openExamineListWin() {
+    window.open(window.location.origin + "/infoMaintain/ExamineList"); //打开调查问卷列表
+}
+```
+
+### 2.路由跳转   
+
+M：路由跳转需要进行配置
+
+## 数据提交   
+
+Z：调用Api时数据提交的代码如下：
+
+```javascript
+if (that.code != "" && that.code != undefined) {
+    data = (await Api.getExamineByCode({
+        code: that.code
+    })).data;
+} else {
+    data = (await Api.getExamine({})).data;
+}
+```
 
 
 

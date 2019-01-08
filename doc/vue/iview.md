@@ -6,7 +6,7 @@ M：怎么添加前端校验呢？
 
 Z：如下：
 
-1. 在Form标签中添加``:rules="ruleValidate"``   
+1. 在Form标签中添加``:rules="ruleValidate"`` 和``:model="sub"``指定json根元素
 
 2. 在标签上添加prop标识``<FormItem label="成立时间" prop="foundDate">``  
 
@@ -118,6 +118,132 @@ linktel:[
     {validator: validateTel, message: '请填写正确电话号码', trigger: 'blur'}
 ]
 ```
+
+#### 动态生成元素校验   
+
+Z：动态生成的元素直接指定校验规则会出现问题，所以需要将校验规则添加到行内
+
+```javascript
+<FormItem :label="subject.titbf.isqa === true ? '必填' : ''" :prop="'subjects.'+ index + '.answer'" :rules="{required: true,message: '填写内容不能为空', trigger: 'blur' }">
+    <RadioGroup vertical v-model="subject.answer">
+        <Radio :label="value" v-for="(value, key, index) in subject.contentbf" :key="index" :value="value">
+            <span>【{{key}}】</span><span>{{value}}</span>
+		</Radio>
+	</RadioGroup>
+</FormItem>
+```
+
+强制绑定prop和rules
+
+#### 多选框非空校验
+
+Z：多选框的初始化数据需要用数组，否则非空校验会出现问题。（可以统一使用空数组初始化）
+
+## 2.列表显示
+
+Z：列表显示的代码如下：
+
+```html
+<Table border :columns="columns1" :data="data1"></Table>
+```
+
+```javascript
+    data() {
+        return {
+            modalExamine: false,
+            columns1: [
+                {
+                    title: "问卷名称",
+                    key: "tit",
+                    align: "center"
+                },
+                {
+                    title: "发布日期",
+                    key: "year",
+                    align: "center",
+                    width: 150
+                },
+                {
+                    title: "操作",
+                    key: "handle",
+                    align: "center",
+                    width: 150,
+                    render: (h, params) => {
+                        return h("div", [
+                            h(
+                                "Button",
+                                {
+                                    props: {
+                                        type: "primary",
+                                        size: "small"
+                                    },
+                                    style: {
+                                        marginRight: "5px"
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.show(params.row.code);
+                                        }
+                                    }
+                                },
+                                "填写问卷"
+                            )
+                        ]);
+                    }
+                }
+            ],
+            data1: []
+        };
+    },
+```
+
+columns1定义标题栏的内容；data1存储数据的内容，key对应属性值
+
+```json
+{
+    code: "599d88b937dd452aa87a99335a5ec509",
+    year: "2018",
+    state: "2",
+    tit: "1111--"
+},
+{
+    code: "23d59b34a46340aa9bf63bcb9d3c3cab",
+    year: "2019",
+    state: "说明内容",
+    tit: "标题内容"
+}...
+```
+
+Z：按钮使用render属性，可以触发当前的show方法，并且将当前行的属性传过去
+
+## 3.模态框
+
+M：我现在要实现一个模块框，怎么做呢？
+
+Z：如下代码，html定义模态框的内容
+
+```html
+<a title="网上调查">
+    <span>网上调查</span>
+    <Modal :footer-hide="true" v-model="modalExamine" title="网上调查" class-name="vertical-center-modal" fullscreen>
+        <eda-examine v-on:listen="submitStatus"></eda-examine>
+    </Modal>
+</a>
+```
+
+M：那如果这个按钮时再列表中的呢，列表是不适合写那么长的Modal的？
+
+Z：先将modal定义在html中
+
+```html
+<Modal :footer-hide="true" v-model="showModal" title="网上调查" class-name="vertical-center-modal" fullscreen>
+    <eda-examine v-on:listen="submitStatus" :code="rowCode"></eda-examine>
+</Modal>
+```
+
+初始化showModal的值为false``showModal: false`` ，在按钮点击的时候将showModal设置为true
+
+
 
 
 
