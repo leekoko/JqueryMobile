@@ -6,6 +6,15 @@ M：vue怎么创建应用呢？
 
 Z：使用``vue init webpack vue-one  ``即可，webpack是模板名称，vue-one是项目名
 
+M：创建项目时候的询问怎么选？
+
+Z：以下为no，其他皆为默认
+
+```
+Set up unit tests No
+Setup e2e tests with Nightwatch? (Y/n) n
+```
+
 启动方式：
 
 ```
@@ -140,7 +149,7 @@ Z：如下
 
 
 
-
+慕课视频
 
 https://www.imooc.com/video/16402
 

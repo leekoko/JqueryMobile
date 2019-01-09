@@ -1307,6 +1307,17 @@ if (that.code != "" && that.code != undefined) {
 }
 ```
 
+## 路由
+
+
+
+
+
+
+
+整理代码笔记 
+
+核心技术视频41
 
 
 
@@ -1315,27 +1326,6 @@ if (that.code != "" && that.code != undefined) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-指南后面部分
-
-https://cn.vuejs.org/v2/guide/components.html
-
-规范内容后期补充
-
-https://cn.vuejs.org/v2/style-guide/#%E4%BC%98%E5%85%88%E7%BA%A7-B-%E7%9A%84%E8%A7%84%E5%88%99%EF%BC%9A%E5%BC%BA%E7%83%88%E6%8E%A8%E8%8D%90-%E5%A2%9E%E5%BC%BA%E5%8F%AF%E8%AF%BB%E6%80%A7
-
-
-
-视频24
 
 
 
