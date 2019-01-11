@@ -7,6 +7,7 @@
    initial-scale:初试的缩放比例，user-scalable=no:禁止用户缩放比例  
 4. 引入jq文件，bootstrap css文件，js文件（使用加速器的方式引入）  
    （百度静态网站加载库：http://cdn.code.baidu.com/）  
+   
 
 ## 2.导航
 ### 1.结构
