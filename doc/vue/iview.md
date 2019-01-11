@@ -243,6 +243,75 @@ Z：先将modal定义在html中
 
 初始化showModal的值为false``showModal: false`` ，在按钮点击的时候将showModal设置为true
 
+## 4.分页   
+
+M：分页效果怎么实现呢？
+
+Z：代码如下：
+
+```html
+<Page :total="total" :page-size="showSize" :current="currentPage" show-sizer @on-change="pageChange" @on-page-size-change="pageSizeChange"/>
+```
+
+初始化data数据：
+
+```javascript
+data() {
+    return {
+        currentPage: 1,
+        total: 100,
+        showSize: 10,
+        ...
+```
+
+添加分页方法：
+
+```javascript
+methods: {
+    pageChange(page) {
+        this.currentPage = page;
+    },
+    pageSizeChange(num) {
+        this.showSize = num;
+    },
+    ...    
+```
+
+添加监视页码变化代码：
+
+```javascript
+watch: {
+    currentPage: function() {
+        this.initTable();
+    },
+    showSize: function() {
+        this.initTable();
+    }
+}
+```
+
+请求数据时将页面传过去
+
+```javascript
+        //初始化通知公告列表数据
+        async initBbsList() {
+            let that = this;
+            let result = (await Api.getBbsList({
+                current: that.currentPage,
+                size: that.showSize,
+                sort: "desc"
+            })).data;
+            that.bbsTableData = result.list;
+            if (result.total === 0) {
+                that.bbsTableData = [];
+            } else {
+                that.bbsTableData = result.list;
+            }
+            that.total = result.total;
+            that.showBbsModal = false;
+        },
+```
+
 
 
 

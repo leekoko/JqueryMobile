@@ -1307,11 +1307,38 @@ if (that.code != "" && that.code != undefined) {
 }
 ```
 
-## 路由
+## 初始化数据
 
+M：怎么回显数据呢？
 
+Z：调用初始化页面方法，然后将获取到数据存进定义的data之中
 
+```javascript
+    mounted() {
+        //初始化公告数据
+        if (this.code !== "") {
+            //不判断直接执行会报错
+            this.initBbs();
+        }
+    },
+```
 
+```javascript
+    methods: {
+        async initBbs() {
+            let that = this;
+            let data;
+            if (that.code != "" && that.code != undefined) {
+                data = (await Api.getBbsByCode({
+                    code: that.code
+                })).data;
+            }
+            that.bbs = data;
+        }
+    },
+```
+
+D：更多调用细节，日后补充。
 
 
 
