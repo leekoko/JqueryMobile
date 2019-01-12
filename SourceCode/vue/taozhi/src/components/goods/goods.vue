@@ -1,14 +1,13 @@
 <template>
-  <div>
-    <router-view/>
-  </div>
+  <h1>goods内容</h1>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'goods'
 }
 </script>
 
-<style>
+<style scoped>
+
 </style>
