@@ -28,13 +28,15 @@ Z：如下：
 
 Z：以下是ruleValidate下引用的规则：
 
-#### 时间非空
+#### 时间非空校验
 
 ```javascript
-foundDate: [
-    {type: "date",required: true,message: "成立时间不能为空",trigger: "change"}
-],
+<FormItem label="区级孵化器认定时间" prop="qujiAcceDate">
+    <DatePicker format="yyyy-MM-dd" size="large" type="date" placeholder="选择时间" :value="formData.qujiAcceDate" @on-change="formData.qujiAcceDate=$event"></DatePicker>
+</FormItem>
 ```
+
+Z：可以解决日期保存时报错
 
 #### 文本非空
 
@@ -215,6 +217,25 @@ columns1定义标题栏的内容；data1存储数据的内容，key对应属性�
 ```
 
 Z：按钮使用render属性，可以触发当前的show方法，并且将当前行的属性传过去
+
+M：那做填写框的时候，怎么做一行显示两列呢？
+
+Z：如下
+
+```javascript
+<Row :gutter="16">
+    <i-col :xs="{ span: 24}" :sm="{ span: 12}" :md="{ span: 12 }" :lg="{ span: 12 }">
+        <FormItem label="产业特色">
+            <i-input size="large" v-model="formData.induChar"></i-input>
+		</FormItem>
+	</i-col>
+	<i-col :xs="{ span: 24}" :sm="{ span: 12}" :md="{ span: 12 }" :lg="{ span: 12 }">
+    	<FormItem label="上年度区级孵化器绩效评价结果">
+        	<i-input size="large" v-model="formData.lastYearAcceJxpj"></i-input>
+		</FormItem>
+	</i-col>
+</Row>
+```
 
 ## 3.模态框
 

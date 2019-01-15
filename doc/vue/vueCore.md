@@ -1291,7 +1291,54 @@ openExamineListWin() {
 
 ### 2.路由跳转   
 
-M：路由跳转需要进行配置
+M：怎么设置路由呢？
+
+Z：分以下三个步骤
+
+1. 设置路由
+
+   ```javascript
+   Vue.use(Router)
+   
+   export default new Router({
+     routes: [
+       {
+         path: '/goods',
+         component: goods
+       },
+       {
+         path: '/ratings',
+         component: ratings
+       },
+   ...
+     ]
+   })
+   ```
+
+2. 加载路由
+
+   ```javascript
+   import router from './router'
+   
+   new Vue({ //配置对象的属性都是固定的属性名
+     el: '#app',
+     components: {App},
+     template: '<App/>',
+     router
+   })
+   ```
+
+3. 使用路由
+
+   ```javascript
+   <div class="tab-item">
+       <router-link to="/ratings">评论</router-link>
+   </div>
+   <div class="tab-item">
+       <router-link to="/seller">商家</router-link>
+   </div>
+   <router-view></router-view>
+   ```
 
 ## 数据提交   
 
