@@ -3,7 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import iView from "iview"
+import 'iview/dist/styles/iview.css'    // 使用 iview的CSS
 
+Vue.use(iView);
 new Vue({ //配置对象的属性都是固定的属性名
   el: '#app',
   components: {App},

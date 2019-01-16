@@ -264,6 +264,22 @@ Z：先将modal定义在html中
 
 初始化showModal的值为false``showModal: false`` ，在按钮点击的时候将showModal设置为true
 
+M：模态框要关闭和提示已保存怎么实现呢？
+
+Z：如下代码
+
+```javascript
+Api.saveExamineAnswer({
+    res: sub.code + "," + sub.titNo
+});
+
+that.$Message.success("已保存");
+that.$emit("listen", {
+    type: "examine",
+    status: true
+});
+```
+
 ## 4.分页   
 
 M：分页效果怎么实现呢？

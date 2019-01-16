@@ -1,29 +1,32 @@
 <template>
-  <div>
-    <v-header></v-header>
-    <div class="tab">
-      <div class="tab-item">
-        <router-link to="/goods">商品1</router-link>
-      </div>
-      <div class="tab-item">
-        <router-link to="/ratings">评论</router-link>
-      </div>
-      <div class="tab-item">
-        <router-link to="/seller">商家</router-link>
-      </div>
+  <div id="app">
+    <div class="layout">
+      <Layout>
+        <v-header></v-header>
+        <Content :style="{minHeight: '800px'}">
+          <v-home></v-home>
+        </Content>
+        <Footer class="layout-footer-center">2011-2016 &copy; TalkingData</Footer>
+      </Layout>
     </div>
-    <router-view></router-view>
+
+
   </div>
 </template>
 
 <script>
   import header from './components/header/header.vue'
+  import home from './view/home.vue'
 
   export default {
     components: {
-      'v-header': header
+      'v-header': header,
+      'v-home': home
     }
+
   }
+
+
 </script>
 <style>
 </style>

@@ -1340,6 +1340,10 @@ Z：分以下三个步骤
    <router-view></router-view>
    ```
 
+M：如果路由中还有链接，怎么进行嵌套呢？
+
+Z：
+
 ## 数据提交   
 
 Z：调用Api时数据提交的代码如下：
@@ -1352,6 +1356,14 @@ if (that.code != "" && that.code != undefined) {
 } else {
     data = (await Api.getExamine({})).data;
 }
+```
+
+Z：提交对象，直接提交该属性即可
+
+```javascript
+                        Api.saveExamineAnswer({
+                            res: sub.code + "," + sub.titNo
+                        });
 ```
 
 ## 初始化数据
