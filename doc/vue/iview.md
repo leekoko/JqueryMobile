@@ -349,6 +349,42 @@ watch: {
         },
 ```
 
+## 5.常用元素  
+
+#### 1.input下的单位
+
+```html
+<i-input v-model="detail.regPay" placeholder="注册资本">
+    <span slot="append">元</span>
+</i-input>
+```
+
+#### 2.radio单选框
+
+```html
+<FormItem label="是否拥有自主知识产权">
+    <i-switch true-value="1" false-value="0" v-model="detail.isIntellectual"/>
+</FormItem>
+```
+
+```html
+<div>是否拥有自主知识产权：
+    {{detail.isIntellectual!==undefined?(detail.isIntellectual==="0"?'否':'是'):''}}
+</div>
+```
+
+#### 3.提示框
+
+M：用在弹出的提示信息
+
+```javascript
+that.$Message.warning(
+    "验证码错误"
+);
+```
+
+
+
 
 
 

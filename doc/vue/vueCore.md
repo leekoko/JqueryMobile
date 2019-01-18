@@ -1398,3 +1398,27 @@ Z：调用初始化页面方法，然后将获取到数据存进定义的data之
 ```
 
 D：更多调用细节，日后补充。
+
+## 异常处理   
+
+M：当服务器端抛出异常，前端怎么获取到呢？
+
+Z：如下代码
+
+```javascript
+let status = (await Api.saveSuggest({
+    formData: formData,
+    machineCode: that.guid,
+    validateCode: that.formItem.validateCode})
+   .catch(error => {
+        let loginMsg =
+            error.message === "" ? "服务异常" : error.message;
+        that.$Message.warning(loginMsg);
+    })
+    .finally(() => {
+        that.refreshValidateCode();
+    })
+).status;
+```
+
+使用.catch捕捉error变量，从中获取参数进行判断。
