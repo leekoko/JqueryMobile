@@ -28,6 +28,33 @@ Z：如下：
 
 Z：以下是ruleValidate下引用的规则：
 
+#### 单选框非空校验
+
+Z：如下代码
+
+```html
+<FormItem label="建有或规划建设的平台" prop="jnynTerr">
+    <RadioGroup size="large" v-model="formData.jnynTerr">
+        <Radio label="1">公共服务平台</Radio>
+        <Radio label="2">共性技术平台</Radio>
+        <Radio label="3">科技金融平台</Radio>
+        <Radio label="4">其他平台</Radio>
+    </RadioGroup>
+</FormItem>
+```
+
+```javascript
+jnynTerr: [
+    {
+        required: true,
+        message: "选择不能为空",
+        trigger: "change"
+    }
+],
+```
+
+radio注意使用change方式
+
 #### 时间非空校验
 
 ```javascript
