@@ -1366,6 +1366,21 @@ Z：提交对象，直接提交该属性即可
                         });
 ```
 
+M：如果要提交的是表单数据和字符串混合，怎么实现呢？
+
+Z：如下代码：
+
+```javascript
+            let data = (await Api.getIncubatorEntpMonthList({
+                ...that.queryParams,
+                current: that.currentPage,
+                size: that.showSize,
+                sort: "desc"
+            })).data;
+```
+
+...可以直接序列化表单数据
+
 ## 初始化数据
 
 M：怎么回显数据呢？
@@ -1397,7 +1412,7 @@ Z：调用初始化页面方法，然后将获取到数据存进定义的data之
     },
 ```
 
-D：更多调用细节，日后补充。
+回显数据需要添加async异步，await同步请求。
 
 ## 异常处理   
 

@@ -14,10 +14,7 @@
         </span>
       <span>
           <h3 style="float: right;margin-right: 20px;">Starting At<h2 style="float: right;margin-left: 3px;">￥100</h2></h3>
-
-
-
-        </span>
+      </span>
     </div>
   </div>
 </template>
