@@ -780,7 +780,9 @@ M：那我要添加一条数据怎么实现呢？
 
 Z：改数字1为0就可以了``this.persons.splice(index,0，newP)  ``
 
+M：如果实时更新的是对象而不是数组，该怎么实现呢？
 
+Z：使用代码``this.$set(this.infoData, 'attachment', dataTemp.list)``即可
 
 #### 对象
 
@@ -1180,21 +1182,24 @@ Z：根据数据的作用域来设定，全局设置方式：
 
    comment接收后相当于定义了一个comment
 
-3. Item.vue
+M：如果要传的是多个参数，怎么实现实时更新呢？
 
-   ```javascript
-   export default{
-       //声明接收属性
-       comment: Object
-   }
-   ```
+Z：父组件传输方式如下：
 
-   ```html
-   {{comment.name}}
-   {{comment.content}}
-   ```
+```html
+<eda-attachment :busiId.sync="infoData.attachCode" :busiType.sync="busiType"></eda-attachment>
+```
 
-   最后一层接收
+子组件接收参数之后，watch检测参数变化情况
+
+```javascript
+watch: {
+    busiId() {
+        this.infoData = {};
+        this.initAttach();
+    }
+}
+```
 
 ## 规范
 
@@ -1341,8 +1346,6 @@ Z：分以下三个步骤
    ```
 
 M：如果路由中还有链接，怎么进行嵌套呢？
-
-Z：
 
 ## 数据提交   
 

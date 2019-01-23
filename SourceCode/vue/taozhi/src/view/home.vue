@@ -1,50 +1,48 @@
 <template>
-  <div class="home" style="margin-top: 100px;margin-left: 50px;">
-    <!--Inspired By Services You’ve Viewed-->
-    <h1>Inspired By Services You’ve Viewed</h1>
 
-    <!--展示商品块start-->
-    <v-goods></v-goods>
-    <!--展示商品块end-->
+  <div class="layout">
+    <Layout>
+      <v-header></v-header>
+      <Content :style="{minHeight: '800px'}">
+        <div class="home" style="margin-top: 100px;margin-left: 50px;">
+          <!--Inspired By Services You’ve Viewed-->
+          <h1>Inspired By Services You’ve Viewed</h1>
 
-    <!--Explore The Marketplace-->
+          <!--展示商品块start-->
+          <v-goods></v-goods>
+          <!--展示商品块end-->
 
-    <!--Get Work Done Faster On Fiverr, With Confidence-->
 
-<!--    <div class="tab">
-      <div class="tab-item">
-        <router-link to="/goods">商品1</router-link>
-      </div>
-      <div class="tab-item">
-        <router-link to="/ratings">评论</router-link>
-      </div>
-      <div class="tab-item">
-        <router-link to="/seller">商家</router-link>
-      </div>
-    </div>
-    <router-view></router-view>-->
-<!--    <i-button @click="show">Click me!</i-button>
-    <Modal v-model="visible" title="Welcome">Welcome to iView</Modal>-->
+          <!--Explore The Marketplace-->
+
+          <!--Get Work Done Faster On Fiverr, With Confidence-->
+
+        </div>
+      </Content>
+      <Footer class="layout-footer-center">2011-2016 &copy; TalkingData</Footer>
+    </Layout>
   </div>
+
+
+
+
 </template>
 
 <script>
+  import header from '../components/header/header.vue'
   import goods from '../components/goods/goods.vue'
 
     export default {
       name: "home",
       components: {
         'v-goods': goods,
+        'v-header': header
       },
       data() {
         return{
-          visible: false
         }
       },
       methods: {
-        show: function () {
-          this.visible = true;
-        }
       }
     }
 </script>
