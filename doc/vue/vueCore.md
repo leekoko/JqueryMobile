@@ -1345,7 +1345,35 @@ Z：分以下三个步骤
    <router-view></router-view>
    ```
 
-M：如果路由中还有链接，怎么进行嵌套呢？
+M：怎么在路由跳转的时候，传递参数呢？
+
+Z：步骤如下
+
+1. 在路由配置中配置带参数
+
+   ```javascript
+   path: "onlineDistrictAcceleratorForm/:id",
+   ```
+
+2. 跳转时传递参数进去
+
+   ```javascript
+   viewInfo() {
+       this.$emit("listen");
+       this.$router.push({
+           path: this.viewPath + "/" + this.busId
+       });
+   }
+   ```
+
+3. 在跳转的页面获取参数
+
+   ```javascript
+   mounted() {
+       //判断编辑或新增
+       let id = this.$route.params.id;
+   }
+   ```
 
 ## 数据提交   
 
