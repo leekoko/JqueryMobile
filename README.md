@@ -1,5 +1,29 @@
 # 前端
 
+## Vue全家桶
+
+### 1.[vue.js核心库基础](docs/vueCore.md)     
+
+- [VUE组件](docs/components/vue-component.md)   
+
+### 2.[vue项目](docs/vue-web.md)    
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+
+
+
 ### 其他
 
 1. [CSS3基础知识](doc/CSS3.md) 
@@ -22,10 +46,10 @@
 6. [【案例】后台练习-后台管理](doc/maizi2.md)  
 7. [【案例】后台页面-K-Cat科猫网后台](doc/k-cat_back.md)  
 
-### Vue全家桶
+---
 
-1. [vue.js核心库](doc/vue/vueCore.md)  
+
+
 2. [node.js](doc/vue/nodeJs.md)   
-3. [iview](doc/vue/iview.md)   
-4. [webpack](doc/vue/webpack.md)    
+2. [iview](doc/vue/iview.md)   
 5. less的使用

@@ -42,7 +42,9 @@ var app2 = new Vue({
 })
 ```
 
-v-bind:捆绑指令，title指向data中的message变量``v-bind:title="message"``
+v-bind:捆绑指令，title指向data中的message变量``v-bind:title="message"``。
+
+标签中style属性的值是一个字符串，而v-bind:style属性的值是对象。如果要将style转化为:style，写法为``:style="{fontSize: '20px',color: itemProps.checked ? 'red':'blue'}"``,属性名改为驼峰式。
 
 M：那如果我要修改属性值呢?
 
@@ -1027,179 +1029,9 @@ Z：可以使用三元运算符
 <FormItem :label="subject.titbf.isqa === true ? '必填' : ''" :prop="subject.titbf.isqa === true ? 'radioProp' : ''" >
 ```
 
-## 组件
+## [组件](components/vue-component.md)   
 
-#### 组件使用
-
-M：如果是相同的代码段，我们一般就是复制很多份，在vue中要怎么将其多次重复呢？
-
-Z：使用组件模板的方式，代码如下
-
-```html
-<div id="app-7">
-	<ol>
-	  <!-- 创建一个 todo-item 组件的实例 -->
-	  <todo-item></todo-item>
-	  <todo-item></todo-item>
-	</ol>
-</div>
-```
-
-```javascript
-// 定义名为 todo-item 的新组件
-Vue.component('todo-item', {
-  template: '<li>这是个待办项</li>'
-})
-var app7 = new Vue({
-	el: '#app-7'
-})
-```
-
-相当于定义一个自定义标签，然后调用该标签就可以了。渲染之后就变为模板的内容。组件中如果有data数据，必须为函数：
-
-```javascript
-// 定义一个名为 button-counter 的新组件
-Vue.component('button-counter', {
-  data: function () {
-    return {
-      count: 0
-    }
-  },
-  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
-})
-```
-
-M：这是当每个模板都一模一样的时候可以使用，但是如果内容有一点不同呢？
-
-Z：如下代码：
-
-```html
-<div id="app-7">
-  <ol>
-    <!--
-      现在我们为每个 todo-item 提供 todo 对象
-      todo 对象是变量，即其内容可以是动态的。
-      我们也需要为每个组件提供一个“key”，稍后再
-      作详细解释。
-    -->
-    <todo-item
-      v-for="item in groceryList"
-      v-bind:todo="item"
-      v-bind:key="item.id">
-    </todo-item>
-  </ol>
-</div>
-```
-
-```javascript
-Vue.component('todo-item', {
-  props: ['todo'],
-  template: '<li>{{ todo.text }}</li>'
-})
-
-var app7 = new Vue({
-  el: '#app-7',
-  data: {
-    groceryList: [
-      { id: 0, text: '蔬菜' },
-      { id: 1, text: '奶酪' },
-      { id: 2, text: '随便其它什么人吃的东西' }
-    ]
-  }
-})
-```
-
-给模板标签绑定一个属性``v-bind:todo="item"``，而模板声明接收该todo属性，并取出属性中的值(也可以直接传值)，写入模板中。
-
-M：模板的定义如果是多个标签组合，该怎么实现呢？
-
-Z：用``\``做行连接符，如下代码：
-
-```javascript
-Vue.component('todo-item', {
-  template: '\
-    <li>\
-      {{ title }}\
-      <button v-on:click="$emit(\'remove\')">Remove</button>\
-    </li>\
-  ',
-  props: ['title']
-})
-```
-
-M：简单说就是给模板不同的位置设置为变量，如果不想让变量发生再次改变，怎么做？
-
-Z：使用v-once属性即可``  template: '<li v-once>{{ todo }}</li>'``
-
-Z：任何类型的应用界面都可以抽象为组件树，在大的组件中套用小的组件。整个前端项目 = 组件不断嵌套堆叠
-
-#### 单个根元素
-
-Z：**every component must have a single root element**，如果有多个元素要写，需要将它包含在一个父元素中。
-
-#### 组件中的数据传递  
-
-M：什么时候要设置全局变量，什么时候设置局部的呢？
-
-Z：根据数据的作用域来设定，全局设置方式：
-
-1. App.vue
-
-   ```javascript
-   export default{
-       data(){
-           comments:[
-               {
-                   name:'BOB',
-                   content:'Vue不错'
-               }
-           ]
-       }
-       
-   }
-   ```
-
-   ```html
-   <List :comments="comments"/>
-   ```
-
-   将变量的值传到组件中
-
-2. List.vue
-
-   ```javascript
-   export default{
-       //声明接收属性
-       props: ['comments']
-   }
-   ```
-
-   ```html
-   <ul class="list-group">
-       <Item v-for="(comment,index)" in comments :key="index" :comment="comment"/>
-   </ul>
-   ```
-
-   comment接收后相当于定义了一个comment
-
-M：如果要传的是多个参数，怎么实现实时更新呢？
-
-Z：父组件传输方式如下：
-
-```html
-<eda-attachment :busiId.sync="infoData.attachCode" :busiType.sync="busiType"></eda-attachment>
-```
-
-子组件接收参数之后，watch检测参数变化情况
-
-```javascript
-watch: {
-    busiId() {
-        this.infoData = {};
-        this.initAttach();
-    }
-}
-```
+通过组件的方式可以将代码提取出来，进行复用。
 
 ## 规范
 

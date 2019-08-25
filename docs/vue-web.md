@@ -2,9 +2,15 @@
 
 ## Vue.js应用创建   
 
-M：vue怎么创建应用呢？
+### vue-cli3创建
 
-Z：使用``vue init webpack vue-one  ``即可，webpack是模板名称，vue-one是项目名
+vue-cli3可以使用``vue create [项目名]``命令初始化，模板是固定的。
+
+### vue-cli2创建
+
+M：vue怎么通过cli2创建应用呢？
+
+Z：使用``vue init webpack vue-one  ``即可，webpack是官方推荐的标准模板，vue-one是项目名
 
 M：创建项目时候的询问怎么选？
 
@@ -39,6 +45,40 @@ Z：vue的基础目录结构如下：
 │   ├── main.js                                 // 程序入口文件，加载各种公共组件
 ├── index.html                                  // 入口html文件
 .
+```
+
+## html转vue
+
+在html中可以写vue代码，但当代码搬到vue文件时，写法有一些转变。
+
+### 基础结构改变
+
+html中，将操作直接在``new Vue``对象里编写
+
+vue中，所有内容需要放在``<template>``标签里。操作在``export default ``里编写。（标识提供接口给外界调用，而在main.js文件中就通过new Vue调用了该接口）
+
+### 组件转化
+
+html写法
+
+```html
+Vue.component('todo-item',{
+    props: ['item'],
+    template: '<li class="item">{{item}}</li>'
+})
+```
+
+vue写法：引入后声明
+
+```vue
+import TodoItem from './components/TodoItem.vue'
+export default{
+...
+  components: {
+    TodoItem
+  }
+...
+}
 ```
 
 ### 1.App.vue   
