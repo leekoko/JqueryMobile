@@ -1033,6 +1033,8 @@ Z：可以使用三元运算符
 
 通过组件的方式可以将代码提取出来，进行复用。
 
+
+
 ## 规范
 
 Z：对于代码的规范，可以使用命令``npm run lint``进行检测
@@ -1300,3 +1302,21 @@ let status = (await Api.saveSuggest({
 ```
 
 使用.catch捕捉error变量，从中获取参数进行判断。
+
+## 数据绑定
+
+vue是单向绑定的，通过语法糖实现双向绑定
+
+```vue
+<PersonalInfo v-model="phoneInfo" :zip-code.sync="zipCode" />
+```
+
+编译后
+
+```vue
+<PersonalInfo
+	:phone-info="phoneInfo"
+    @change="val => (phoneInfo = val)"
+    :zip-code="zipCode"
+    @update:zipCoe="val => (zipCode = val)"/>
+```

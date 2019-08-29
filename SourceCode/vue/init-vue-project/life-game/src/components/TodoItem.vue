@@ -1,8 +1,12 @@
 <template>
-    <li class="item">
-        <input type="checkbox" v-model="checked" >
-        <slot name="item" v-bind="{checked}"></slot>
-    </li>
+    <div>
+        <li class="item">
+            <input type="checkbox" v-model="checked" >
+            <slot name="item" v-bind="{checked}"></slot>
+        </li>
+
+
+    </div>
 
 </template>
 
